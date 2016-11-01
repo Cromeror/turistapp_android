@@ -5,4 +5,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="img_cover">img_cover</string>
+    <string name="site_name_preview">Site name</string>
 </resources>
