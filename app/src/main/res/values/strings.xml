@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">TuristApp</string>
 
+    <string name="google_maps_key">AIzaSyDKajPw48XTK9Q1ZXvx6BDBe-CP-Ty7O8w</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
