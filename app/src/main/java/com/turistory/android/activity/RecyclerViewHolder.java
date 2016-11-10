@@ -1,9 +1,10 @@
-package co.com.touristapp.android;
+package com.turistory.android.activity;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 /**
  * @author Cristobal Romero Rossi <cristobalromerorossi@gmail.com>

@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
-        applicationId "co.com.touristapp.android"
+        applicationId "com.turistory.android.activity"
         minSdkVersion 15
         targetSdkVersion 25
         multiDexEnabled true
