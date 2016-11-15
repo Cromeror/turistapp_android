@@ -1,4 +1,4 @@
-package com.turistory.android.activity;
+package com.turistory.android.activity.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.turistory.android.activity.MapsActivity;
+import com.turistory.android.activity.view.holder.RecyclerViewHolder;
+import com.turistory.android.activity.R;
 
 
 /**
@@ -30,11 +34,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        holder.t1.setText(arreglo[position]);
-        holder.im.setOnClickListener(onClickListener);
-        holder.im.setTag(holder);
-
-
+        holder.getTitle().setText(arreglo[position]);
+        holder.getCoverImage().setOnClickListener(onClickListener);
+        holder.getCoverImage().setTag(holder);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
