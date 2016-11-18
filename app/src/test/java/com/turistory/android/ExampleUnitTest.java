@@ -1,4 +1,4 @@
-package co.com.touristapp.android;
+package com.turistory.android;
 
 import org.junit.Test;
 

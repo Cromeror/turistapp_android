@@ -5,18 +5,26 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.turistory.android.activity.MapsActivity;
+import com.turistory.android.activity.PlaceDetailActivity;
 import com.turistory.android.activity.view.holder.RecyclerViewHolder;
 import com.turistory.android.activity.R;
+import com.turistory.android.data.Place;
+import com.turistory.android.data.PlacesDataProvider;
+
+import java.util.List;
 
 
 /**
  * Created by Next University
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
-    String[] arreglo = {"Layouts", "Fragment", "Items", "Java", "Android"};
+    public final static String PLACE_ID = RecyclerAdapter.class.getPackage() + ".place.id";
+
+    List<Place> places = PlacesDataProvider.getPlaces();
     Context context;
     LayoutInflater inflater;
 
@@ -34,23 +42,44 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        holder.getTitle().setText(arreglo[position]);
-        holder.getCoverImage().setOnClickListener(onClickListener);
+        Place place = places.get(position);
+        holder.getTitle().setText(place.getName());
+        holder.getCoverImage().setOnClickListener(getOnClickListenerPlaceDetail(position));
+        holder.getBtnExplore().setOnClickListener(getOnClickListenerExplore(position));
         holder.getCoverImage().setTag(holder);
     }
 
-    View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            RecyclerViewHolder vh = (RecyclerViewHolder) v.getTag();
-            //int posicion = vh.getAdapterPosition();
-            Intent intent = new Intent(context, MapsActivity.class);
-            context.startActivity(intent);
-        }
-    };
+    private OnClickListener getOnClickListenerExplore(final Integer id) {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //RecyclerViewHolder vh = (RecyclerViewHolder) v.getTag();
+                //int posicion = vh.getAdapterPosition();
+                Intent intent = new Intent(context, MapsActivity.class);
+                if (id != null) {
+                    intent.putExtra(PLACE_ID, id);
+                }
+                context.startActivity(intent);
+            }
+        };
+    }
+    private OnClickListener getOnClickListenerPlaceDetail(final Integer id){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //RecyclerViewHolder vh = (RecyclerViewHolder) v.getTag();
+                //int posicion = vh.getAdapterPosition();
+                Intent intent = new Intent(context, PlaceDetailActivity.class);
+                if (id != null) {
+                    intent.putExtra(PLACE_ID, id);
+                }
+                context.startActivity(intent);
+            }
+        };
+    }
 
     @Override
     public int getItemCount() {
-        return arreglo.length;
+        return places.size();
     }
 }

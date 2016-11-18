@@ -1,4 +1,4 @@
-package co.com.touristapp.android;
+package com.turistory.android;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("co.com.touristapp.android", appContext.getPackageName());
+        assertEquals("com.turistory.android", appContext.getPackageName());
     }
 }

@@ -15,11 +15,17 @@ import com.turistory.android.activity.R;
 public class RecyclerViewHolder extends RecyclerView.ViewHolder {
     private TextView title;
     private ImageView coverImage;
+    private ImageView btnShare;
+    private ImageView btnExplore;
+    private ImageView btnThumbUp;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
         title = (TextView) itemView.findViewById(R.id.primary_text);
         coverImage = (ImageView) itemView.findViewById(R.id.img_cover);
+        btnExplore = (ImageView) itemView.findViewById(R.id.btn_explore);
+        btnShare = (ImageView) itemView.findViewById(R.id.btn_share);
+        btnThumbUp = (ImageView) itemView.findViewById(R.id.btn_thumb_up);
     }
 
     public TextView getTitle() {
@@ -36,5 +42,29 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public void setCoverImage(ImageView coverImage) {
         this.coverImage = coverImage;
+    }
+
+    public ImageView getBtnShare() {
+        return btnShare;
+    }
+
+    public void setBtnShare(ImageView btnShare) {
+        this.btnShare = btnShare;
+    }
+
+    public ImageView getBtnExplore() {
+        return btnExplore;
+    }
+
+    public void setBtnExplore(ImageView btnExplore) {
+        this.btnExplore = btnExplore;
+    }
+
+    public ImageView getBtnThumbUp() {
+        return btnThumbUp;
+    }
+
+    public void setBtnThumbUp(ImageView btnThumbUp) {
+        this.btnThumbUp = btnThumbUp;
     }
 }
