@@ -22,6 +22,18 @@ public class PlacesDataProvider {
                     "siglo XVIII.", 10.422902, -75.551356),
             new Place(4, "India catalina", "La India Catalina es uno de los personajes " +
                     "indígenas de la historia de Colombia, conocida por ser la amante de don " +
+                    "Pedro de Heredia. ",10.426468, -75.544040),
+            new Place(5, "Plaza Fernandez Madrid", "La India Catalina es uno de los personajes " +
+            "indígenas de la historia de Colombia, conocida por ser la amante de don " +
+            "Pedro de Heredia. ",10.426468, -75.544040),
+            new Place(6, "Botas Viejas", "La India Catalina es uno de los personajes " +
+                    "indígenas de la historia de Colombia, conocida por ser la amante de don " +
+                    "Pedro de Heredia. ",10.426468, -75.544040),
+            new Place(7, "Catedral San Pedro Claver", "La India Catalina es uno de los personajes " +
+                    "indígenas de la historia de Colombia, conocida por ser la amante de don " +
+                    "Pedro de Heredia. ",10.426468, -75.544040),
+            new Place(8, "Plaza de la paz", "La India Catalina es uno de los personajes " +
+                    "indígenas de la historia de Colombia, conocida por ser la amante de don " +
                     "Pedro de Heredia. ",10.426468, -75.544040)
     };
 

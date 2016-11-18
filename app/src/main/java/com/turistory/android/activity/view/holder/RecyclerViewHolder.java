@@ -18,6 +18,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
     private ImageView btnShare;
     private ImageView btnExplore;
     private ImageView btnThumbUp;
+    private ImageView btnMore;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
@@ -26,6 +27,16 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         btnExplore = (ImageView) itemView.findViewById(R.id.btn_explore);
         btnShare = (ImageView) itemView.findViewById(R.id.btn_share);
         btnThumbUp = (ImageView) itemView.findViewById(R.id.btn_thumb_up);
+        btnMore = (ImageView) itemView.findViewById(R.id.btn_more);
+
+    }
+
+    public ImageView getBtnMore() {
+        return btnMore;
+    }
+
+    public void setBtnMore(ImageView btnMore) {
+        this.btnMore = btnMore;
     }
 
     public TextView getTitle() {

@@ -35,7 +35,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = inflater.inflate(R.layout.item, parent, false);
+        View v = inflater.inflate(R.layout.item_secundary, parent, false);
         RecyclerViewHolder view1 = new RecyclerViewHolder(v);
         return view1;
     }
@@ -44,9 +44,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         Place place = places.get(position);
         holder.getTitle().setText(place.getName());
-        holder.getCoverImage().setOnClickListener(getOnClickListenerPlaceDetail(position));
+        holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(position));
+        /*holder.getCoverImage().setOnClickListener(getOnClickListenerPlaceDetail(position));
         holder.getBtnExplore().setOnClickListener(getOnClickListenerExplore(position));
-        holder.getCoverImage().setTag(holder);
+        holder.getCoverImage().setTag(holder);*/
     }
 
     private OnClickListener getOnClickListenerExplore(final Integer id) {
