@@ -43,8 +43,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         Place place = places.get(position);
-        holder.getTitle().setText(place.getName());
-        holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(position));
+        //holder.getTitle().setText(place.getName());
+        //holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(position));
         /*holder.getCoverImage().setOnClickListener(getOnClickListenerPlaceDetail(position));
         holder.getBtnExplore().setOnClickListener(getOnClickListenerExplore(position));
         holder.getCoverImage().setTag(holder);*/
@@ -64,7 +64,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
             }
         };
     }
-    private OnClickListener getOnClickListenerPlaceDetail(final Integer id){
+
+    private OnClickListener getOnClickListenerPlaceDetail(final Integer id) {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
