@@ -27,8 +27,9 @@
         </activity>
         <activity android:name=".MapsActivity" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name=".PlaceDetailActivity" />
+            android:name=".PlaceDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PlacesActivity" />
     </application>
 
 </manifest>
