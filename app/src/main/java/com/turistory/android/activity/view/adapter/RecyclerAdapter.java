@@ -17,9 +17,9 @@ import com.turistory.android.data.PlacesDataProvider;
 
 import java.util.List;
 
-
 /**
- * Created by Next University
+ * @author Cristobal Romero Rossi <cristobalromerorossi@gmail.com>
+ * @version 1.0 SNAPSHOT
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     public final static String PLACE_ID = RecyclerAdapter.class.getPackage() + ".place.id";
