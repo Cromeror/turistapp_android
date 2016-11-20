@@ -29,7 +29,7 @@
         <activity
             android:name=".PlaceDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PlacesActivity"></activity>
+        <activity android:name=".PlacesActivity" />
     </application>
 
 </manifest>
