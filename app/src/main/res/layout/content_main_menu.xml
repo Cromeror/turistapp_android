@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="320dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:padding="@dimen/card_padding"
+    android:orientation="vertical">
+
+    <Button
+        android:text="Rutas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/btn_route"
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"/>
+
+    <Button
+        android:text="Sitios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/btn_place"
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"/>
+
+</LinearLayout>
