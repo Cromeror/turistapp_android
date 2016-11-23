@@ -5,17 +5,17 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.turistory.android.activity.view.adapter.RouteRecyclerAdapter;
+import com.turistory.android.activity.view.adapter.PreviewGalleryRecyclerAdapter;
 
-public class RoutesActivity extends AppCompatActivity {
+public class RouteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_routes);
+        setContentView(R.layout.activity_route);
 
-        RouteRecyclerAdapter adapter = new RouteRecyclerAdapter(this);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RouteRecycleView);
+        PreviewGalleryRecyclerAdapter adapter = new PreviewGalleryRecyclerAdapter(this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.previewGalleryRecyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

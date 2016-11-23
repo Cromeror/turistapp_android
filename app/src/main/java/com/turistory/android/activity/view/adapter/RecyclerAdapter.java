@@ -24,9 +24,9 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     public final static String PLACE_ID = RecyclerAdapter.class.getPackage() + ".place.id";
 
-    List<Place> places = PlacesDataProvider.getPlaces();
-    Context context;
-    LayoutInflater inflater;
+    private List<Place> places = PlacesDataProvider.getPlaces();
+    private Context context;
+    private LayoutInflater inflater;
 
     public RecyclerAdapter(Context context) {
         this.context = context;
@@ -36,8 +36,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflater.inflate(R.layout.item, parent, false);
-        RecyclerViewHolder view1 = new RecyclerViewHolder(v);
-        return view1;
+        RecyclerViewHolder view = new RecyclerViewHolder(v);
+        return view;
     }
 
     @Override
