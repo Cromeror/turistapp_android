@@ -31,7 +31,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PlacesActivity" />
         <activity android:name=".RoutesActivity" />
-        <activity android:name=".RouteActivity"
+        <activity android:name=".RouteDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

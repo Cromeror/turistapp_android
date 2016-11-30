@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.turistory.android.activity.PlaceDetailActivity;
 import com.turistory.android.activity.R;
-import com.turistory.android.activity.RouteActivity;
-import com.turistory.android.activity.view.holder.RecyclerViewHolder;
+import com.turistory.android.activity.RouteDetailActivity;
 import com.turistory.android.activity.view.holder.RouteRecyclerViewHolder;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
@@ -52,7 +50,7 @@ public class RouteRecyclerAdapter extends RecyclerView.Adapter<RouteRecyclerView
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, RouteActivity.class);
+                Intent intent = new Intent(context, RouteDetailActivity.class);
                 context.startActivity(intent);
             }
         };

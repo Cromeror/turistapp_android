@@ -17,4 +17,6 @@
     <dimen name="card_light_text_size">18dp</dimen>
     <dimen name="card_light_image_height">133dp</dimen>
     <dimen name="card_light_height">117dp</dimen>
+    <dimen name="spacing_item_gallery">4dp</dimen>
+    <dimen name="vertical_padding_gallery">8dp</dimen>
 </resources>
