@@ -21,5 +21,6 @@ public class RouteDetailActivity extends AppCompatActivity {
         LinearLayoutManager horizontalLayoutManagaer
                 = new LinearLayoutManager(RouteDetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManagaer);
+
     }
 }

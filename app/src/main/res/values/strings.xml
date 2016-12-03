@@ -11,4 +11,7 @@
     <string name="site_name_preview">Site name</string>
     <string name="card_light_go_details">go details</string>
     <string name="preview_image_gallery">preview image gallery</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
