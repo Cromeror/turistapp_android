@@ -1,47 +1,71 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:elevation="4dp"
+    android:background="@color/divider"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_mediaplayer"
     tools:context="com.turistory.android.activity.MediaPlayerFragment">
 
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:layout_above="@+id/media_player_control_content" />
+        android:layout_marginLeft="@dimen/padding_mediaplayer"
+        android:layout_marginRight="@dimen/padding_mediaplayer"
+        android:src="@mipmap/ic_launcher" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/media_player_control_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/padding_mediaplayer"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/initial_time"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="1"
-            android:src="@drawable/cast_ic_mini_controller_skip_prev" />
+            android:layout_marginLeft="@dimen/align_padding_seekbar"
+            android:layout_marginStart="@dimen/align_padding_seekbar"
+            android:text="00:00" />
+
+        <TextView
+            android:id="@+id/current_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingRight="@dimen/align_padding_seekbar"
+            android:layout_marginEnd="@dimen/align_padding_seekbar"
+            android:layout_marginRight="@dimen/align_padding_seekbar"
+            android:text="05:00" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/current_time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBar"
+            android:layout_marginLeft="@dimen/align_padding_seekbar"
+            android:layout_marginStart="@dimen/align_padding_seekbar"
+            android:text="Name audio" />
 
         <ImageButton
-            android:layout_width="0dp"
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:src="@drawable/cast_ic_mini_controller_play" />
-
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            android:src="@drawable/cast_ic_mini_controller_skip_next" />
-
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/seekBar"
+            android:layout_marginEnd="@dimen/align_padding_seekbar"
+            android:layout_marginRight="@dimen/align_padding_seekbar"
+            android:background="@color/divider"
+            android:src="@drawable/ic_play_circle_filled_black_24px" />
+    </RelativeLayout>
+</LinearLayout>

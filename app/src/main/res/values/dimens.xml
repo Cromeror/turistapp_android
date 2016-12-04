@@ -19,4 +19,9 @@
     <dimen name="card_light_height">117dp</dimen>
     <dimen name="spacing_item_gallery">4dp</dimen>
     <dimen name="vertical_padding_gallery">8dp</dimen>
+
+    <dimen name="subheading">18sp</dimen>
+    <dimen name="align_padding_seekbar">8dp</dimen>
+    <dimen name="padding_mediaplayer">8dp</dimen>
+    <dimen name="dimen_clear">0dp</dimen>
 </resources>
