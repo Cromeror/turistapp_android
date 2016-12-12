@@ -1,71 +1,29 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/divider"
-    android:gravity="center"
-    android:orientation="horizontal"
+    android:elevation="4dp"
     android:padding="@dimen/padding_mediaplayer"
     tools:context="com.turistory.android.activity.MediaPlayerFragment">
 
-    <ImageView
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_mediaplayer"
-        android:layout_marginRight="@dimen/padding_mediaplayer"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/play_btn"
+        android:layout_toStartOf="@+id/play_btn">
+        <include layout="@layout/info_media_player" />
+    </GridLayout>
 
-    <RelativeLayout
-        android:id="@+id/media_player_control_content"
-        android:layout_width="match_parent"
+    <ImageButton
+        android:id="@+id/play_btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_mediaplayer"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/initial_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/align_padding_seekbar"
-            android:layout_marginStart="@dimen/align_padding_seekbar"
-            android:text="00:00" />
-
-        <TextView
-            android:id="@+id/current_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:paddingRight="@dimen/align_padding_seekbar"
-            android:layout_marginEnd="@dimen/align_padding_seekbar"
-            android:layout_marginRight="@dimen/align_padding_seekbar"
-            android:text="05:00" />
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/current_time" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/seekBar"
-            android:layout_marginLeft="@dimen/align_padding_seekbar"
-            android:layout_marginStart="@dimen/align_padding_seekbar"
-            android:text="Name audio" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/seekBar"
-            android:layout_marginEnd="@dimen/align_padding_seekbar"
-            android:layout_marginRight="@dimen/align_padding_seekbar"
-            android:background="@color/divider"
-            android:src="@drawable/ic_play_circle_filled_black_24px" />
-    </RelativeLayout>
-</LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/transparent"
+        android:contentDescription="@string/description_play_button"
+        android:paddingLeft="@dimen/padding_mediaplayer"
+        android:paddingStart="@dimen/padding_mediaplayer"
+        android:src="@drawable/ic_play_circle_filled_black_24px" />
+</RelativeLayout>

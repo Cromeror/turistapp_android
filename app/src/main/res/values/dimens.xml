@@ -24,4 +24,5 @@
     <dimen name="align_padding_seekbar">8dp</dimen>
     <dimen name="padding_mediaplayer">8dp</dimen>
     <dimen name="dimen_clear">0dp</dimen>
+    <dimen name="title">20sp</dimen>
 </resources>
