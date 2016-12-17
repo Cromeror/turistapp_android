@@ -8,11 +8,9 @@ import android.view.ViewGroup;
 
 import com.turistory.android.activity.R;
 import com.turistory.android.activity.view.holder.PreviewGalleryRecyclerViewHolder;
-import com.turistory.android.activity.view.holder.RecyclerViewHolder;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.turistory.android.activity.view.adapter.RecyclerAdapter;
+import com.turistory.android.activity.view.adapter.RecyclerAdapterPlace;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
@@ -24,20 +24,25 @@ public class PlaceDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getIntent().getIntExtra(RecyclerAdapter.PLACE_ID, 0) >= 0) {
-            loadDetail(getIntent().getIntExtra(RecyclerAdapter.PLACE_ID, 0));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (getIntent().getIntExtra(RecyclerAdapterPlace.PLACE_ID, 0) >= 0) {
+            loadDetail(getIntent().getIntExtra(RecyclerAdapterPlace.PLACE_ID, 0));
         }
     }
 
     private void loadDetail(int intExtra) {
         this.place = PlacesDataProvider.getPlaces().get(intExtra);
-        TextView title = (TextView) findViewById(R.id.title_detail);
-        TextView description = (TextView) findViewById(R.id.description_detail);
-        ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);
+        TextView title = (TextView) findViewById(R.id.title_place_detail);
+        TextView description = (TextView) findViewById(R.id.description_place_detail);
+        //ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);
 
         title.setText(place.getName());
         description.setText(place.getDescription());
-        imagen.setImageResource(R.mipmap.tower_clock);
+        //imagen.setImageResource(R.mipmap.tower_clock);
     }
 
     public void playAction(View view) {

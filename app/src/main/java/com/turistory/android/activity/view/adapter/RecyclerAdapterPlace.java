@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.turistory.android.activity.MapsActivity;
 import com.turistory.android.activity.PlaceDetailActivity;
-import com.turistory.android.activity.view.holder.RecyclerViewHolder;
+import com.turistory.android.activity.view.holder.RecyclerViewHolderPlace;
 import com.turistory.android.activity.R;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
@@ -21,30 +21,30 @@ import java.util.List;
  * @author Cristobal Romero Rossi <cristobalromerorossi@gmail.com>
  * @version 1.0 SNAPSHOT
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
-    public final static String PLACE_ID = RecyclerAdapter.class.getPackage() + ".place.id";
+public class RecyclerAdapterPlace extends RecyclerView.Adapter<RecyclerViewHolderPlace> {
+    public final static String PLACE_ID = RecyclerAdapterPlace.class.getPackage() + ".place.id";
 
     private List<Place> places = PlacesDataProvider.getPlaces();
     private Context context;
     private LayoutInflater inflater;
 
-    public RecyclerAdapter(Context context) {
+    public RecyclerAdapterPlace(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
-    public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerViewHolderPlace onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflater.inflate(R.layout.item, parent, false);
-        RecyclerViewHolder view = new RecyclerViewHolder(v);
+        RecyclerViewHolderPlace view = new RecyclerViewHolderPlace(v);
         return view;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerViewHolderPlace holder, int position) {
         Place place = places.get(position);
         //holder.getTitle().setText(place.getName());
-        //holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(position));
+        holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(position));
         /*holder.getCoverImage().setOnClickListener(getOnClickListenerPlaceDetail(position));
         holder.getBtnExplore().setOnClickListener(getOnClickListenerExplore(position));
         holder.getCoverImage().setTag(holder);*/
@@ -54,7 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //RecyclerViewHolder vh = (RecyclerViewHolder) v.getTag();
+                //RecyclerViewHolderPlace vh = (RecyclerViewHolderPlace) v.getTag();
                 //int posicion = vh.getAdapterPosition();
                 Intent intent = new Intent(context, MapsActivity.class);
                 if (id != null) {
@@ -69,7 +69,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //RecyclerViewHolder vh = (RecyclerViewHolder) v.getTag();
+                //RecyclerViewHolderPlace vh = (RecyclerViewHolderPlace) v.getTag();
                 //int posicion = vh.getAdapterPosition();
                 Intent intent = new Intent(context, PlaceDetailActivity.class);
                 if (id != null) {

@@ -16,12 +16,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:contentDescription="@string/card_light_go_details"
             android:padding="@dimen/card_padding_actions"
-            android:src="@drawable/flecha_derecha_24px"
-            android:contentDescription="@string/card_light_go_details" />
+            android:src="@drawable/flecha_derecha_24px" />
 
         <ImageView
-            android:id="@+id/img_cover"
+            android:id="@+id/item_route_img_cover"
             android:layout_width="@dimen/card_light_image_height"
             android:layout_height="@dimen/card_light_image_height"
             android:layout_alignParentLeft="true"
@@ -35,8 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/btn_more"
-            android:layout_toEndOf="@+id/img_cover"
-            android:layout_toRightOf="@+id/img_cover"
+            android:layout_toEndOf="@+id/item_route_img_cover"
+            android:layout_toRightOf="@+id/item_route_img_cover"
             android:orientation="vertical">
 
             <TextView

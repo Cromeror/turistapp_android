@@ -16,7 +16,7 @@ public class RouteRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public RouteRecyclerViewHolder(View itemView) {
         super(itemView);
-        image = (ImageView) itemView.findViewById(R.id.img_cover);
+        image = (ImageView) itemView.findViewById(R.id.item_route_img_cover);
     }
 
     public ImageView getImage() {

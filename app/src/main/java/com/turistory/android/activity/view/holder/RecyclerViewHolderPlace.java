@@ -12,7 +12,7 @@ import com.turistory.android.activity.R;
  * @author Cristobal Romero Rossi <cristobalromerorossi@gmail.com>
  * @version 1.0 SNAPSHOT
  */
-public class RecyclerViewHolder extends RecyclerView.ViewHolder {
+public class RecyclerViewHolderPlace extends RecyclerView.ViewHolder {
     private TextView title;
     private ImageView coverImage;
     private ImageView btnShare;
@@ -20,10 +20,10 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
     private ImageView btnThumbUp;
     private ImageView btnMore;
 
-    public RecyclerViewHolder(View itemView) {
+    public RecyclerViewHolderPlace(View itemView) {
         super(itemView);
         title = (TextView) itemView.findViewById(R.id.primary_text);
-        coverImage = (ImageView) itemView.findViewById(R.id.img_cover);
+        coverImage = (ImageView) itemView.findViewById(R.id.item_route_img_cover);
         btnExplore = (ImageView) itemView.findViewById(R.id.btn_explore);
         btnShare = (ImageView) itemView.findViewById(R.id.btn_share);
         btnThumbUp = (ImageView) itemView.findViewById(R.id.btn_thumb_up);

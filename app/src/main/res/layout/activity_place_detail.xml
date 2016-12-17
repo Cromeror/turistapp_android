@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:clipToPadding="false"
     tools:context=".PlaceDetailActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -16,7 +16,6 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/primary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
@@ -29,34 +28,30 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                android:layout_height="?attr/actionBarSize" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scroll"
+    <include layout="@layout/content_place_detail" />
+
+
+    <FrameLayout
+        android:id="@+id/simple_media_player"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:elevation="4dp"
+        android:layout_gravity="bottom|end">
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/content_place_detail" />
+        <fragment
+            android:id="@+id/media_player_fragment"
+            class="com.turistory.android.activity.MediaPlayerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_media_player" />
 
-    </android.support.v4.widget.NestedScrollView>
-
-    <!-- <android.support.design.widget.FloatingActionButton
-         android:id="@+id/fab"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center_vertical|left"
-         android:layout_margin="@dimen/fab_margin"
-         app:layout_anchor="@+id/include"
-         app:layout_anchorGravity="center_vertical|right"
-         app:srcCompat="@android:drawable/ic_dialog_email" />-->
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
