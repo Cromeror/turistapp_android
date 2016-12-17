@@ -9,7 +9,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.turistory.android.activity.view.adapter.RecyclerAdapterPlace;
+import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
@@ -28,8 +28,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Integer index = getIntent().getIntExtra(RecyclerAdapterPlace.PLACE_ID, -1) > 0 ?
-                getIntent().getIntExtra(RecyclerAdapterPlace.PLACE_ID, 0) : 0;
+        Integer index = getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, -1) > 0 ?
+                getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0) : 0;
         Place place = PlacesDataProvider.getPlaces().get(index);
 
         LatLng latLng = new LatLng(place.getLatitude(), place.getLongitude());

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.turistory.android.activity.view.adapter.RecyclerAdapterPlace;
+import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
 
 public class PlacesActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class PlacesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
-        RecyclerAdapterPlace adapter = new RecyclerAdapterPlace(this);
+        PlaceRecyclerAdapter adapter = new PlaceRecyclerAdapter(this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_places);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);

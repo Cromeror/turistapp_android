@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.turistory.android.activity.view.adapter.RecyclerAdapterPlace;
+import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
@@ -29,8 +28,8 @@ public class PlaceDetailActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (getIntent().getIntExtra(RecyclerAdapterPlace.PLACE_ID, 0) >= 0) {
-            loadDetail(getIntent().getIntExtra(RecyclerAdapterPlace.PLACE_ID, 0));
+        if (getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0) >= 0) {
+            loadDetail(getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0));
         }
     }
 
