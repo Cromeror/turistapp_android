@@ -1,5 +1,10 @@
 package com.turistory.android.data;
 
+import com.turistory.android.activity.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Cristobal Romero Rossi <cristobalromerorossi@gmail.com>
  * @version 1.0
@@ -11,12 +16,15 @@ public class Place {
     private String description;
     private Double latitude;
     private Double longitude;
+    private Integer cover;
+    private List<Integer> images;
 
 
     public Place(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
+        images = new ArrayList<>();
     }
 
     public Place(Integer id, String name, String description, Double latitude, Double longitude) {
@@ -25,6 +33,16 @@ public class Place {
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
+        images = new ArrayList<>();
+    }
+
+    public Place(Integer id, String name, String description, Double latitude, Double longitude, Integer cover) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.cover = cover;
     }
 
     public Integer getId() {
@@ -65,6 +83,22 @@ public class Place {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public Integer getCover() {
+        return cover;
+    }
+
+    public void setCover(Integer cover) {
+        this.cover = cover;
+    }
+
+    public List<Integer> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Integer> images) {
+        this.images = images;
     }
 
     @Override

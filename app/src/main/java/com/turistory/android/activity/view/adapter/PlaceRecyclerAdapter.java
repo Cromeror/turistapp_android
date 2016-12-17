@@ -43,7 +43,7 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerView
     @Override
     public void onBindViewHolder(PlaceRecyclerViewHolder holder, int position) {
         Place place = places.get(position);
-        //holder.getTitle().setText(place.getName());
+        holder.getTitle().setText(place.getName());
         holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(position));
         /*holder.getCoverImage().setOnClickListener(getOnClickListenerPlaceDetail(position));
         holder.getBtnExplore().setOnClickListener(getOnClickListenerExplore(position));

@@ -3,11 +3,15 @@ package com.turistory.android.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
+import com.turistory.android.activity.view.adapter.PreviewGalleryRecyclerAdapter;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
@@ -20,8 +24,18 @@ public class PlaceDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_detail);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        PreviewGalleryRecyclerAdapter adapter = new PreviewGalleryRecyclerAdapter(this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.previewGalleryRecyclerView);
+        recyclerView.setAdapter(adapter);
+
+
+        LinearLayoutManager horizontalLayoutManager
+                = new LinearLayoutManager(PlaceDetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(horizontalLayoutManager);
 
     }
 
@@ -37,11 +51,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
         this.place = PlacesDataProvider.getPlaces().get(intExtra);
         TextView title = (TextView) findViewById(R.id.title_place_detail);
         TextView description = (TextView) findViewById(R.id.description_place_detail);
-        //ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);
+        ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);
 
         title.setText(place.getName());
         description.setText(place.getDescription());
-        //imagen.setImageResource(R.mipmap.tower_clock);
+        if (place.getCover() != null)
+            imagen.setImageResource(place.getCover());
     }
 
     public void playAction(View view) {

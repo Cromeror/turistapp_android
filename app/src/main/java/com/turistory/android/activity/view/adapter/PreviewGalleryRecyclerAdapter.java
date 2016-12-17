@@ -42,6 +42,6 @@ public class PreviewGalleryRecyclerAdapter extends RecyclerView.Adapter<PreviewG
 
     @Override
     public int getItemCount() {
-        return places.size();
+        return 7;
     }
 }
