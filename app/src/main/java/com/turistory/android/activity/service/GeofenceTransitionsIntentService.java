@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingEvent;
+import com.turistory.android.activity.MainActivity;
 import com.turistory.android.activity.MapsActivity;
 import com.turistory.android.activity.R;
 
@@ -118,13 +119,13 @@ public class GeofenceTransitionsIntentService extends IntentService {
      */
     private void sendNotification(String notificationDetails) {
         // Create an explicit content Intent that starts the main Activity.
-        Intent notificationIntent = new Intent(getApplicationContext(), MapsActivity.class);
+        Intent notificationIntent = new Intent(getApplicationContext(), MainActivity.class);
 
         // Construct a task stack.
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
 
         // Add the main Activity to the task stack as the parent.
-        stackBuilder.addParentStack(MapsActivity.class);
+        stackBuilder.addParentStack(MainActivity.class);
 
         // Push the content Intent onto the stack.
         stackBuilder.addNextIntent(notificationIntent);
