@@ -15,7 +15,6 @@ import android.util.Log;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingEvent;
 import com.turistory.android.activity.MainActivity;
-import com.turistory.android.activity.MapsActivity;
 import com.turistory.android.activity.R;
 
 import java.util.ArrayList;
@@ -66,22 +65,21 @@ public class GeofenceTransitionsIntentService extends IntentService {
         int geofenceTransition = geofencingEvent.getGeofenceTransition();
 
         // Test that the reported transition was of interest.
-        if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER ||
-                geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT) {
-
+        if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
             // Get the geofences that were triggered. A single event can trigger multiple geofences.
             List<Geofence> triggeringGeofences = geofencingEvent.getTriggeringGeofences();
-
             // Get the transition details as a String.
             String geofenceTransitionDetails = getGeofenceTransitionDetails(
                     this,
                     geofenceTransition,
                     triggeringGeofences
             );
-
             // Send notification and log the transition details.
             sendNotification(geofenceTransitionDetails);
             Log.i(TAG, geofenceTransitionDetails);
+        } else if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT) {
+            // Send notification and log the transition details.
+            //sendNotification("Exit area");
         } else {
             // Log the error.
             Log.e(TAG, getString(R.string.geofence_transition_invalid_type, geofenceTransition));

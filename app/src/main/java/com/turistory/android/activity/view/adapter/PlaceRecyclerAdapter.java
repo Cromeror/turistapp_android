@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.turistory.android.activity.MapsActivity;
+import com.turistory.android.activity.MapActivity;
 import com.turistory.android.activity.PlaceDetailActivity;
 import com.turistory.android.activity.view.holder.PlaceRecyclerViewHolder;
 import com.turistory.android.activity.R;
@@ -56,7 +56,7 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerView
             public void onClick(View v) {
                 //PlaceRecyclerViewHolder vh = (PlaceRecyclerViewHolder) v.getTag();
                 //int posicion = vh.getAdapterPosition();
-                Intent intent = new Intent(context, MapsActivity.class);
+                Intent intent = new Intent(context, MapActivity.class);
                 if (id != null) {
                     intent.putExtra(PLACE_ID, id);
                 }

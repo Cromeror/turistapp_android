@@ -51,8 +51,8 @@ public class MapActivity extends FragmentActivity
         implements OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener,
         ResultCallback<Status> {
 
-    public final static String POSITION_LAT = MapsActivity.class.getPackage() + ".position.latitude";
-    public final static String POSITION_LON = MapsActivity.class.getPackage() + ".position.longitude";
+    public final static String POSITION_LAT = MapActivity.class.getPackage() + ".position.latitude";
+    public final static String POSITION_LON = MapActivity.class.getPackage() + ".position.longitude";
     protected final static String TAG = "MainActivity";
 
     /**
@@ -65,7 +65,6 @@ public class MapActivity extends FragmentActivity
     private PendingIntent mGeofencePendingIntent;
 
     private GoogleMap map;
-    private LocationRequest mLocationRequest;
     private GoogleApiClient mGoogleApiClient;
     private float currentZoom = 18.0f;
     private Location mLastLocation;

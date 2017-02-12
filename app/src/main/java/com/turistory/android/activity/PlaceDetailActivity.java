@@ -9,11 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jean.jcplayer.JcAudio;
 import com.example.jean.jcplayer.JcPlayerView;
+import com.mzelzoghbi.zgallery.ZGrid;
+import com.mzelzoghbi.zgallery.entities.ZColor;
 import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
 import com.turistory.android.activity.view.adapter.PreviewGalleryRecyclerAdapter;
 import com.turistory.android.data.Place;
@@ -38,7 +41,21 @@ public class PlaceDetailActivity extends AppCompatActivity {
         PreviewGalleryRecyclerAdapter adapter = new PreviewGalleryRecyclerAdapter(this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.previewGalleryRecyclerView);
         recyclerView.setAdapter(adapter);
-
+        ImageButton btnMore = (ImageButton) findViewById(R.id.btn_more);
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<String> imagenes = new ArrayList<String>();
+                imagenes.add("http://destinocartagena.co/sites/default/files/styles/large/public/field/image/MURALLAS%20CARTAGENA%20DE%20INDIAS-CORPORACION%20TURISMO%20DE%20CARTAGENA-flikr.jpg?itok=5NrvR3rI");
+                ZGrid.with(PlaceDetailActivity.this, imagenes)
+                        .setToolbarColorResId(R.color.primary) // toolbar color
+                        .setTitle("Zak Gallery") // toolbar title
+                        .setToolbarTitleColor(ZColor.WHITE) // toolbar title color
+                        .setSpanCount(3) // colums count
+                        .setGridImgPlaceHolder(R.color.primary) // color placeholder for the grid image until it loads
+                        .show();
+            }
+        });
         jcplayerView = (JcPlayerView) findViewById(R.id.jcplayer);
 
         LinearLayoutManager horizontalLayoutManager
@@ -69,7 +86,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.map_item:
-                Intent intent = new Intent(this, MapsActivity.class);
+                Intent intent = new Intent(this, MapActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -96,7 +113,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     }
 
     public void goMapAction(View view) {
-        Intent intent = new Intent(PlaceDetailActivity.this, MapsActivity.class);
+        Intent intent = new Intent(PlaceDetailActivity.this, MapActivity.class);
         startActivity(intent);
     }
 }
