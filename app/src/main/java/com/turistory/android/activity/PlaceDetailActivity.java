@@ -6,15 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jean.jcplayer.JcAudio;
-import com.example.jean.jcplayer.JcPlayerView;
+import com.joaquimley.faboptions.FabOptions;
 import com.mzelzoghbi.zgallery.ZGrid;
 import com.mzelzoghbi.zgallery.entities.ZColor;
 import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
@@ -24,10 +22,10 @@ import com.turistory.android.data.PlacesDataProvider;
 
 import java.util.ArrayList;
 
-public class PlaceDetailActivity extends AppCompatActivity {
+public class PlaceDetailActivity extends AppCompatActivity
+        implements View.OnClickListener {
     public final static String ARG_INDEX = "com.crom.miguiapp.PlaceDetailActivity.index";
     private Place place;
-    private JcPlayerView jcplayerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,6 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         PreviewGalleryRecyclerAdapter adapter = new PreviewGalleryRecyclerAdapter(this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.previewGalleryRecyclerView);
@@ -56,33 +53,30 @@ public class PlaceDetailActivity extends AppCompatActivity {
                         .show();
             }
         });
-        jcplayerView = (JcPlayerView) findViewById(R.id.jcplayer);
 
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(PlaceDetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
-
+        FabOptions fabOptions = (FabOptions) findViewById(R.id.fab_options);
+        fabOptions.setButtonsMenu(R.menu.floating_place_menu);
+        fabOptions.setOnClickListener(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        ArrayList<JcAudio> jcAudios = new ArrayList<>();
-        jcAudios.add(JcAudio.createFromRaw("Raw audio", R.raw.audio_tower_clock));
-        jcplayerView.initPlaylist(jcAudios);
-        jcplayerView.createNotification(); // default icon
         if (getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0) >= 0) {
             loadDetail(getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0));
         }
     }
 
-    @Override
+ /*   @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_menu, menu);
         return true;
-    }
+    }*/
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.map_item:
@@ -92,7 +86,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     private void loadDetail(int intExtra) {
         this.place = PlacesDataProvider.getPlaces().get(intExtra);
@@ -115,5 +109,19 @@ public class PlaceDetailActivity extends AppCompatActivity {
     public void goMapAction(View view) {
         Intent intent = new Intent(PlaceDetailActivity.this, MapActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.faboptions_map:
+                Intent intent = new Intent(this, MapActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.faboptions_audio:
+                break;
+            default:
+                // no-op
+        }
     }
 }
