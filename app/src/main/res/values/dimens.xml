@@ -33,4 +33,6 @@
     <dimen name="default_padding_bottom">16dp</dimen>
     <dimen name="card_default_padding">16dp</dimen>
     <dimen name="card_default_content_margin">16dp</dimen>
+
+    <dimen name="recycler_margin">8dp</dimen>
 </resources>

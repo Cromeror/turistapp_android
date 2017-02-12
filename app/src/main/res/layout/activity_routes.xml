@@ -10,5 +10,6 @@
         android:id="@+id/RouteRecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/recycler_margin"
         android:scrollbars="vertical" />
 </RelativeLayout>

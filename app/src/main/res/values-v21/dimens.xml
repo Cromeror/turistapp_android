@@ -2,4 +2,5 @@
 <resources>
     <dimen name="subheading">18sp</dimen>
     <dimen name="align_padding_seekbar">8dp</dimen>
+    <dimen name="recycler_margin">8dp</dimen>
 </resources>
