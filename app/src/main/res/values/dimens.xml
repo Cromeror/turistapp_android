@@ -35,4 +35,7 @@
     <dimen name="card_default_content_margin">16dp</dimen>
 
     <dimen name="recycler_margin">8dp</dimen>
+
+
+    <dimen name="bottom_control_panel">80dp</dimen>
 </resources>

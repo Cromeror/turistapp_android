@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.joaquimley.faboptions.FabOptions;
+//import com.joaquimley.faboptions.FabOptions;
 import com.mzelzoghbi.zgallery.ZGrid;
 import com.mzelzoghbi.zgallery.entities.ZColor;
 import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
@@ -57,9 +57,9 @@ public class PlaceDetailActivity extends AppCompatActivity
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(PlaceDetailActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
-        FabOptions fabOptions = (FabOptions) findViewById(R.id.fab_options);
-        fabOptions.setButtonsMenu(R.menu.floating_place_menu);
-        fabOptions.setOnClickListener(this);
+        //FabOptions fabOptions = (FabOptions) findViewById(R.id.fab_options);
+        //fabOptions.setButtonsMenu(R.menu.floating_place_menu);
+        //fabOptions.setOnClickListener(this);
     }
 
     @Override
