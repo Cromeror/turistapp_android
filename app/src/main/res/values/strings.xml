@@ -53,5 +53,6 @@
     <string name="nav_contact">Contactame</string>
     <string name="map">Map</string>
     <string name="audio">Audio</string>
+    <string name="geofence_transition_dwell">You are inside</string>
 
 </resources>

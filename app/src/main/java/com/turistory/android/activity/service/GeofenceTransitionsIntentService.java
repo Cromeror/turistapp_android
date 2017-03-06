@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.location.Location;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.text.TextUtils;
@@ -169,8 +171,45 @@ public class GeofenceTransitionsIntentService extends IntentService {
                 return getString(R.string.geofence_transition_entered);
             case Geofence.GEOFENCE_TRANSITION_EXIT:
                 return getString(R.string.geofence_transition_exited);
+            case Geofence.GEOFENCE_TRANSITION_DWELL:
+                return getString(R.string.geofence_transition_dwell);
             default:
                 return getString(R.string.unknown_geofence_transition);
+        }
+    }
+    private class LocationListener implements android.location.LocationListener
+    {
+        Location mLastLocation;
+
+        public LocationListener(String provider)
+        {
+            Log.e(TAG, "LocationListener " + provider);
+            mLastLocation = new Location(provider);
+        }
+
+        @Override
+        public void onLocationChanged(Location location)
+        {
+            Log.e(TAG, "onLocationChanged: " + location);
+            mLastLocation.set(location);
+        }
+
+        @Override
+        public void onProviderDisabled(String provider)
+        {
+            Log.e(TAG, "onProviderDisabled: " + provider);
+        }
+
+        @Override
+        public void onProviderEnabled(String provider)
+        {
+            Log.e(TAG, "onProviderEnabled: " + provider);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras)
+        {
+            Log.e(TAG, "onStatusChanged: " + provider);
         }
     }
 }
