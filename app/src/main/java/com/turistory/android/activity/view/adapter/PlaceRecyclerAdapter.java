@@ -10,11 +10,12 @@ import android.view.ViewGroup;
 
 import com.turistory.android.activity.MapActivity;
 import com.turistory.android.activity.PlaceDetailActivity;
-import com.turistory.android.activity.view.holder.PlaceRecyclerViewHolder;
 import com.turistory.android.activity.R;
+import com.turistory.android.activity.view.holder.PlaceRecyclerViewHolder;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -80,8 +81,15 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerView
         };
     }
 
+
     @Override
     public int getItemCount() {
         return places.size();
+    }
+
+    public void setFilter(List<Place> nuevaLista){
+        places = new ArrayList<>();
+        places.addAll(nuevaLista);
+        notifyDataSetChanged();
     }
 }

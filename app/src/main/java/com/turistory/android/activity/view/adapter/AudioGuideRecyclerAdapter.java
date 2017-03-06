@@ -13,6 +13,7 @@ import com.turistory.android.activity.view.holder.AudioGuideRecyclerViewHolder;
 import com.turistory.android.data.AudioGuide;
 import com.turistory.android.data.AudioGuideDataProvider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -65,5 +66,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
     public int getItemCount() {
         return audioguide.size();
     }
+
+
 
 }
