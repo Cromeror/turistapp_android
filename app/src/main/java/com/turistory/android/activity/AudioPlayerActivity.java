@@ -1,13 +1,10 @@
 package com.turistory.android.activity;
 
-import android.app.DialogFragment;
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,7 +12,7 @@ import android.widget.Toast;
 import com.example.jean.jcplayer.JcAudio;
 import com.example.jean.jcplayer.JcPlayerService;
 import com.example.jean.jcplayer.JcPlayerView;
-import com.turistory.android.activity.view.adapter.AudioGuideRecyclerAdapter;
+import com.turistory.android.activity.view.adapter.AudioAdapter;
 import com.turistory.android.data.AudioGuide;
 import com.turistory.android.data.AudioGuideDataProvider;
 
@@ -45,7 +42,7 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
             loadDetail(getIntent().getIntExtra(AudioGuideRecyclerAdapter.AUDIOGUIDE_ID, 0));
         }*/
 
-      /*  Bundle datos = this.getIntent().getExtras();
+        Bundle datos = this.getIntent().getExtras();
         Log.e(TAG, "Datos -------> " +
                 datos);
         int pos = datos.getInt("posicion");
@@ -55,14 +52,14 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
 
 
         Log.e(TAG, "Posicion -------> " +
-                audioguide.getId());*/
+                audioguide.getId());
         player = (JcPlayerView) findViewById(R.id.jcplayer);
 
         ArrayList<JcAudio> jcAudios = new ArrayList<>();
 
         //jcAudios.add(JcAudio.createFromURL("url audio","http://www.villopim.com.br/android/Music_01.mp3"));
         //jcAudios.add(JcAudio.createFromAssets("Asset audio", "49.v4.mid"));
-        jcAudios.add(JcAudio.createFromRaw("Torre del reloj", R.raw.audio_tower_clock));
+        jcAudios.add(JcAudio.createFromRaw(audioguide.getTitle(), audioguide.getAudio()));
         //jcAudios.add(JcAudio.createFromFilePath("File directory audio", this.getFilesDir() + "/" + "CANTO DA GRAÚNA.mp3"));
         //jcAudios.add(JcAudio.createFromAssets("I am invalid audio", "aaa.mid")); // invalid assets file
         player.initPlaylist(jcAudios);
@@ -112,13 +109,16 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
     }
 
     private void loadDetail(int intExtra) {
-/*        this.audioguide = AudioGuideDataProvider.getAudioGuide().get(intExtra);
+       this.audioguide = AudioGuideDataProvider.getAudioGuide().get(intExtra);
         TextView title = (TextView) findViewById(R.id.title_audioplayer);
         TextView subtitle = (TextView) findViewById(R.id.subtitle_audioplayer);
         ImageView covermini = (ImageView) findViewById(R.id.covermini_audioplayer);
+        ImageView cover = (ImageView) findViewById(R.id.cover_audioplayer);
         title.setText(this.audioguide.getTitle());
         covermini.setImageResource(audioguide.getCover());
-        subtitle.setText(audioguide.getSubtitle());*//*
+        subtitle.setText(audioguide.getSubtitle());
+        cover.setImageResource(audioguide.getCover());
+        /*
 
 
 

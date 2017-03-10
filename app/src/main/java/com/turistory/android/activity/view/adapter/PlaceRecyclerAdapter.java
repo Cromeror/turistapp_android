@@ -3,11 +3,13 @@ package com.turistory.android.activity.view.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import com.turistory.android.activity.AboutActivity;
 import com.turistory.android.activity.MapActivity;
 import com.turistory.android.activity.PlaceDetailActivity;
 import com.turistory.android.activity.R;
@@ -24,6 +26,7 @@ import java.util.List;
  */
 public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerViewHolder> {
     public final static String PLACE_ID = PlaceRecyclerAdapter.class.getPackage() + ".place.id";
+    protected final static String TAG = "PlaceRecyclerAdapter";
 
     private List<Place> places = PlacesDataProvider.getPlaces();
     private Context context;
@@ -43,9 +46,14 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerView
 
     @Override
     public void onBindViewHolder(PlaceRecyclerViewHolder holder, int position) {
+        Log.e(TAG, "Posicion -------> " +
+                position);
         Place place = places.get(position);
+        Log.e(TAG, "ID -------> " +
+                place.getId());
         holder.getTitle().setText(place.getName());
-        holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(position));
+        holder.getBtnMore().setOnClickListener(getOnClickListenerPlaceDetail(4));
+
         /*holder.getCoverImage().setOnClickListener(getOnClickListenerPlaceDetail(position));
         holder.getBtnExplore().setOnClickListener(getOnClickListenerExplore(position));
         holder.getCoverImage().setTag(holder);*/
@@ -72,14 +80,15 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerView
             public void onClick(View v) {
                 //PlaceRecyclerViewHolder vh = (PlaceRecyclerViewHolder) v.getTag();
                 //int posicion = vh.getAdapterPosition();
-                Intent intent = new Intent(context, PlaceDetailActivity.class);
+                Intent intent = new Intent(context, AboutActivity.class);
                 if (id != null) {
-                    intent.putExtra(PLACE_ID, id);
+                    //intent.putExtra(PLACE_ID, id);
                 }
                 context.startActivity(intent);
             }
         };
     }
+
 
 
     @Override

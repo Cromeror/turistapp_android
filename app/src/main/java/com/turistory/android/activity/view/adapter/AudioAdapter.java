@@ -1,4 +1,4 @@
-package com.turistory.android.activity;
+package com.turistory.android.activity.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.jean.jcplayer.JcAudio;
+import com.turistory.android.activity.AudioPlayerActivity;
+import com.turistory.android.activity.R;
 
 import java.util.List;
 

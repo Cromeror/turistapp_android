@@ -16,7 +16,7 @@ public class SplashScreen extends Activity{
             @Override
             public void run() {
 
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                Intent intent = new Intent(SplashScreen.this, AudioGuideActivity.class);
                 startActivity(intent);
                 finish();
 

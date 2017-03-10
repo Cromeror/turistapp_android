@@ -48,11 +48,11 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/image_reproductor_audio"
+                    android:id="@+id/cover_audioplayer"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/cartagena"
+                    android:src="@mipmap/home_background"
 
                     android:visibility="visible"
                     android:layout_alignParentTop="true"

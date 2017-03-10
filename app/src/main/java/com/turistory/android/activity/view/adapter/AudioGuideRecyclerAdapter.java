@@ -21,11 +21,11 @@ import java.util.List;
  */
 
 public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRecyclerViewHolder> {
-    // public final static String AUDIOGUIDE_ID = AudioGuideRecyclerAdapter.class.getPackage() + ".audioguide.id";
+    // public final static String AUDIOGUIDE_ID = AudioGuideRecyclerAdapter.class.getPackage() + ".audioguides.id";
 
 
     private LayoutInflater inflater;
-    private List<AudioGuide> audioguide = AudioGuideDataProvider.getAudioGuide();
+    private List<AudioGuide> audioguides = AudioGuideDataProvider.getAudioGuide();
     private Context context;
 
 
@@ -42,19 +42,25 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
 
     @Override
     public void onBindViewHolder(AudioGuideRecyclerViewHolder holder, int position) {
-        holder.getTitle().setText(audioguide.get(position).getTitle());
-        holder.getSubtitle().setText(audioguide.get(position).getSubtitle());
-        holder.getCover().setImageResource(audioguide.get(position).getCover());
+
+
+        holder.getTitle().setText(audioguides.get(position).getTitle());
+        holder.getSubtitle().setText(audioguides.get(position).getSubtitle());
+        holder.getCover().setImageResource(audioguides.get(position).getCover());
+
         holder.getBtn().setOnClickListener(getOnClickListenerAudioPlayer(position));
     }
 
-    private View.OnClickListener getOnClickListenerAudioPlayer(final Integer id) {
+    private View.OnClickListener getOnClickListenerAudioPlayer(final Integer position) {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AudioPlayerActivity.class);
 
-                if (id != null) {
+                int id= audioguides.get(position).getId();
+
+
+                if (position != null) {
                     intent.putExtra("posicion", id);
                 }
                 context.startActivity(intent);
@@ -64,9 +70,14 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
 
     @Override
     public int getItemCount() {
-        return audioguide.size();
+        return audioguides.size();
     }
 
+    public void setFilter(List<AudioGuide> nuevaLista){
+        audioguides = new ArrayList<>();
+        audioguides.addAll(nuevaLista);
+        notifyDataSetChanged();
+    }
 
 
 }

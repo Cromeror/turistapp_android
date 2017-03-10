@@ -1,44 +1,51 @@
 package com.turistory.android.activity;
 
-import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.turistory.android.activity.view.adapter.AudioGuideRecyclerAdapter;
 import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
+import com.turistory.android.activity.view.adapter.RouteRecyclerAdapter;
+import com.turistory.android.data.AudioGuide;
+import com.turistory.android.data.AudioGuideDataProvider;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlacesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class AudioGuideActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+    protected final static String TAG = "AudioGuideActivity";
     private RecyclerView recyclerView;
-    private PlaceRecyclerAdapter adapter;
-    private List<Place> mCountryModel = PlacesDataProvider.getPlaces();
-    protected final static String TAG = "PlacesActivity";
-
+    private AudioGuideRecyclerAdapter adapter;
+    private List<AudioGuide> mCountryModel = AudioGuideDataProvider.getAudioGuide();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_places);
+        setContentView(R.layout.activity_audio_guide);
 
-        adapter = new PlaceRecyclerAdapter(this);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_view_places);
+
+
+        adapter = new AudioGuideRecyclerAdapter(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recycle_view_audioguide);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
+/*        recyclerView.setItemViewCacheSize(20);
+        recyclerView.setDrawingCacheEnabled(true);
+        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);*/
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Log.e(TAG, "Posicion -------> " +
                 adapter.getItemCount());
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,7 +73,7 @@ public class PlacesActivity extends AppCompatActivity implements SearchView.OnQu
     }
     @Override
     public boolean onQueryTextChange(String newText) {
-        final List<Place> filteredModelList = filter(mCountryModel, newText);
+        final List<AudioGuide> filteredModelList = filter(mCountryModel, newText);
         adapter.setFilter(filteredModelList);
         return true;
     }
@@ -77,13 +84,14 @@ public class PlacesActivity extends AppCompatActivity implements SearchView.OnQu
     }
 
 
-    private List<Place> filter(List<Place> models, String query) {
+    private List<AudioGuide> filter(List<AudioGuide> models, String query) {
         query = query.toLowerCase();
 
-        final List<Place> filteredModelList = new ArrayList<>();
-        for (Place model : models) {
-            final String text = model.getName().toLowerCase();
-            if (text.contains(query)) {
+        final List<AudioGuide> filteredModelList = new ArrayList<>();
+        for (AudioGuide model : models) {
+            final String title = model.getTitle().toLowerCase();
+            final String route = model.getSubtitle().toLowerCase();
+            if (title.contains(query) || route.contains(query)) {
                 filteredModelList.add(model);
             }
         }
