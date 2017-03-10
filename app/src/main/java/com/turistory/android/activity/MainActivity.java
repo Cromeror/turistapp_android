@@ -164,9 +164,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        Log.i(TAG, "Connected to GoogleAPIClient" + mGoogleApiClient.isConnected());
+        Log.i(TAG, "Connected to GoogleAPIClient " + mGoogleApiClient.isConnected());
         //startLocationMonitoring();
-        startGeofenceMonitoring();
         createLocationRequest();
     }
 
@@ -182,15 +181,16 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onResume() {
-        Log.i(TAG, "onResume called");
         super.onResume();
 
         int response = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
-        if (response != ConnectionResult.SUCCESS) {
-            Log.i(TAG, "Google play services not avaliable - show dialog to ask  use  to download it");
-            GoogleApiAvailability.getInstance().getErrorDialog(this, response, 1).show();
-        } else {
+        if (response == ConnectionResult.SUCCESS) {
             Log.i(TAG, "Google Play is avaliable - no action is required.");
+            startGeofenceMonitoring();
+        } else {
+            Log.i(TAG, "Google play services not avaliable - show dialog to ask  use  to download it");
+            //GoogleApiAvailability.getInstance().getErrorDialog(this, response, 1).show();
+            startLocationUpdates();
         }
     }
 
@@ -226,14 +226,12 @@ public class MainActivity extends AppCompatActivity
         mLocationRequest.setFastestInterval(5000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
-
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
                 .addLocationRequest(mLocationRequest);
 
         PendingResult<LocationSettingsResult> result =
                 LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient,
                         builder.build());
-
 
         result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
             @Override
@@ -245,6 +243,7 @@ public class MainActivity extends AppCompatActivity
                         // initialize location requests here.
                         Log.i("settings", "OK");
                         startLocationUpdates();
+                        startGeofenceMonitoring();//Add geofence
                         break;
                     case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
                         // Location settings are not satisfied, but this can be fixed
