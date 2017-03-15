@@ -53,5 +53,7 @@
     <string name="nav_contact">Contactame</string>
     <string name="map">Map</string>
     <string name="audio">Audio</string>
+    <string name="geofence_transition_dwell">You are inside</string>
+    <string name="activate_gps_message">Para que esta aplicación funcione correctamente debe estar atcivado el GPS\\n¿Desea activarlo ahora?</string>
 
 </resources>
