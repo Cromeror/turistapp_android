@@ -5,19 +5,35 @@
     android:id="@+id/activity_splash_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/cartagena"
-    tools:context="com.turistory.android.activity.SplashScreen">
+    android:background="@mipmap/splashscreen">
 
-    <TextView
-        android:text="TURISTORY"
-        android:textSize="40dp"
-        android:textColor="#000000"
+    <!--<TextView
+        android:text="WOULAB"
+        android:textSize="15dp"
+        android:textColor="#A9A9A9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:id="@+id/textView99"
+        android:elevation="3dp"
+        tools:ignore="HardcodedText,SpUsage"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:text="Realizado "
+        android:textSize="15dp"
+        android:textColor="#A9A9A9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:elevation="3dp"
         tools:ignore="HardcodedText,SpUsage"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp" />-->
+
+
 </RelativeLayout>

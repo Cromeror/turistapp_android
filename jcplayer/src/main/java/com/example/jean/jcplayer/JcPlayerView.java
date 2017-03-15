@@ -66,7 +66,7 @@ public class JcPlayerView extends LinearLayout implements
         this.txtCurrentDuration = (TextView) findViewById(R.id.txt_current_duration);
         //this.txtCurrentMusic = (TextView) findViewById(R.id.txt_current_music);
         this.seekBar = (SeekBar) findViewById(R.id.seek_bar);
-        this.btnPlay.setTag(R.drawable.ic_play_white);
+        this.btnPlay.setTag(R.drawable.ic_play_circle);
 
         btnNext.setOnClickListener(this);
         btnPrev.setOnClickListener(this);
@@ -198,7 +198,7 @@ public class JcPlayerView extends LinearLayout implements
             if(view.getId() ==  R.id.btn_play) {
                 YoYo.with(Techniques.Pulse).playOn(btnPlay);
 
-                if (btnPlay.getTag().equals(R.drawable.ic_pause_white))
+                if (btnPlay.getTag().equals(R.drawable.ic_pause_circle))
                     pause();
                 else
                     continueAudio();
@@ -333,12 +333,12 @@ public class JcPlayerView extends LinearLayout implements
     public void onPaused() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
           btnPlay.setBackground(ResourcesCompat.getDrawable(getResources(),
-                                R.drawable.ic_play_white, null));
+                                R.drawable.ic_play_circle, null));
         } else {
           btnPlay.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(),
-                                        R.drawable.ic_play_white, null));
+                                        R.drawable.ic_play_circle, null));
         }
-        btnPlay.setTag(R.drawable.ic_play_white);
+        btnPlay.setTag(R.drawable.ic_play_circle);
     }
 
     @Override
@@ -350,12 +350,12 @@ public class JcPlayerView extends LinearLayout implements
     public void onPlaying() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
           btnPlay.setBackground(ResourcesCompat.getDrawable(getResources(),
-                                R.drawable.ic_pause_white, null));
+                                R.drawable.ic_pause_circle, null));
         } else {
           btnPlay.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(),
-                                        R.drawable.ic_pause_white, null));
+                                        R.drawable.ic_pause_circle, null));
         }
-        btnPlay.setTag(R.drawable.ic_pause_white);
+        btnPlay.setTag(R.drawable.ic_pause_circle);
     }
 
     @Override

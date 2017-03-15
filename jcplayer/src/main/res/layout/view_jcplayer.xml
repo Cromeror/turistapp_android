@@ -2,12 +2,11 @@
 xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-tools:context="com.example.jean.jcplayer.JcPlayerView">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:background="#FF5722"
+        android:background="#F5A42C"
         android:layout_height="match_parent"
         android:id="@+id/relativeLayout">
 
@@ -53,7 +52,7 @@ tools:context="com.example.jean.jcplayer.JcPlayerView">
             android:id="@+id/btn_play"
             android:layout_width="@dimen/touch_default"
             android:layout_height="@dimen/touch_default"
-            android:background="@drawable/ic_play_white"
+            android:background="@drawable/ic_play_circle"
             android:layout_gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
@@ -67,6 +66,7 @@ tools:context="com.example.jean.jcplayer.JcPlayerView">
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="16dp"
+            android:visibility="invisible"
             android:layout_marginBottom="5dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="16dp" />
@@ -90,6 +90,7 @@ tools:context="com.example.jean.jcplayer.JcPlayerView">
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="5dp"
+            android:visibility="invisible"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="16dp" />
 

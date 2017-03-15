@@ -1,10 +1,15 @@
 package com.turistory.android.activity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,15 +37,8 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
         setContentView(R.layout.activity_audio_player);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        addView();
 
 
-
-
-
-/*        if (getIntent().getIntExtra(AudioGuideRecyclerAdapter.AUDIOGUIDE_ID, 0) >= 0) {
-            loadDetail(getIntent().getIntExtra(AudioGuideRecyclerAdapter.AUDIOGUIDE_ID, 0));
-        }*/
 
         Bundle datos = this.getIntent().getExtras();
         Log.e(TAG, "Datos -------> " +
@@ -57,49 +55,48 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
 
         ArrayList<JcAudio> jcAudios = new ArrayList<>();
 
-        //jcAudios.add(JcAudio.createFromURL("url audio","http://www.villopim.com.br/android/Music_01.mp3"));
-        //jcAudios.add(JcAudio.createFromAssets("Asset audio", "49.v4.mid"));
+
         jcAudios.add(JcAudio.createFromRaw(audioguide.getTitle(), audioguide.getAudio()));
-        //jcAudios.add(JcAudio.createFromFilePath("File directory audio", this.getFilesDir() + "/" + "CANTO DA GRAÚNA.mp3"));
-        //jcAudios.add(JcAudio.createFromAssets("I am invalid audio", "aaa.mid")); // invalid assets file
         player.initPlaylist(jcAudios);
-
-
-//        jcAudios.add(JcAudio.createFromFilePath("test", this.getFilesDir() + "/" + "13.mid"));
-//        jcAudios.add(JcAudio.createFromFilePath("test", this.getFilesDir() + "/" + "123123.mid")); // invalid file path
-//        jcAudios.add(JcAudio.createFromAssets("49.v4.mid"));
-//        jcAudios.add(JcAudio.createFromRaw(R.raw.a_203));
-//        jcAudios.add(JcAudio.createFromRaw("a_34", R.raw.a_34));
-//        player.initWithTitlePlaylist(jcAudios, "Awesome music");
-
-
-//        jcAudios.add(JcAudio.createFromFilePath("test", this.getFilesDir() + "/" + "13.mid"));
-//        jcAudios.add(JcAudio.createFromFilePath("test", this.getFilesDir() + "/" + "123123.mid")); // invalid file path
-//        jcAudios.add(JcAudio.createFromAssets("49.v4.mid"));
-//        jcAudios.add(JcAudio.createFromRaw(R.raw.a_203));
-//        jcAudios.add(JcAudio.createFromRaw("a_34", R.raw.a_34));
-//        player.initAnonPlaylist(jcAudios);
-
-//        Adding new audios to playlist
-//        player.addAudio(JcAudio.createFromURL("url audio","http://www.villopim.com.br/android/Music_01.mp3"));
-//        player.addAudio(JcAudio.createFromAssets("49.v4.mid"));
-//        player.addAudio(JcAudio.createFromRaw(R.raw.a_34));
-//        player.addAudio(JcAudio.createFromFilePath(this.getFilesDir() + "/" + "121212.mmid"));
-
         player.registerInvalidPathListener(this);
         adapterSetup();
 
-    }
-
-    private void addView() {
-
-
-
-
+        ImageButton BtnLeer = (ImageButton) findViewById(R.id.bottombar_leer);
+        BtnLeer.setOnClickListener(getOnclicListenerBtnLeer());
 
     }
 
+    private View.OnClickListener getOnclicListenerBtnLeer() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createSimpleDialog();
+            }
+        };
+    }
 
+    public AlertDialog createSimpleDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Titulo")
+                .setMessage("El Mensaje para el usuario")
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                               // listener.onPossitiveButtonClick();
+                            }
+                        })
+                .setNegativeButton("CANCELAR",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                              //  listener.onNegativeButtonClick();
+                            }
+                        });
+
+        return builder.create();
+    }
 
     @Override
     protected void onStart() {
@@ -118,18 +115,7 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
         covermini.setImageResource(audioguide.getCover());
         subtitle.setText(audioguide.getSubtitle());
         cover.setImageResource(audioguide.getCover());
-        /*
 
-
-
-       /* TextView title = (TextView) findViewById(R.id.title_place_detail);
-        TextView description = (TextView) findViewById(R.id.description_place_detail);
-        ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);
-
-        title.setText(place.getName());
-        description.setText(place.getDescription());
-        if (place.getCover() != null)
-            imagen.setImageResource(place.getCover());*/
     }
 
     public void playAudio(JcAudio jcAudio){
@@ -140,8 +126,6 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
 
     protected void adapterSetup() {
         audioAdapter = new AudioAdapter(this);
-        //recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.setAdapter(audioAdapter);
         audioAdapter.setupItems(player.getMyPlaylist());
     }
 
@@ -160,8 +144,6 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
     @Override
     public void onPathError(JcAudio jcAudio) {
         Toast.makeText(this, jcAudio.getPath() + " with problems", Toast.LENGTH_LONG).show();
-//        player.removeAudio(jcAudio);
-//        player.next();
     }
 
 

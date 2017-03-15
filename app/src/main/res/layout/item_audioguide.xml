@@ -18,62 +18,71 @@
 
         <ImageView
             android:id="@+id/item_audioguide_list_img_cover"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:contentDescription="@string/img_cover"
-            android:scaleType="fitXY"
-            android:src="@mipmap/plaza_de_los_coches" />
+
+            android:scaleType="centerCrop"
+            android:src="@mipmap/plaza_de_los_coches"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="40dp"
-            android:layout_height="55dp"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="#60000000"
+            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentStart="true">
 
-            android:background="#FF0080"
-            android:orientation="vertical"
-            android:layout_alignRight="@+id/text_title_audioguide"
-            android:layout_alignEnd="@+id/text_title_audioguide">
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/text_title_audioguide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/text_subtitle_audioguide"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="8dp"
+                    android:text="Los Esclavos"
+                    android:textColor="#ffffff"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_subtitle_audioguide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/linearLayout"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="12dp"
+                    android:paddingLeft="8dp"
+                    android:text="Informacion general"
+                    android:textColor="#ffffff"
+                    android:textSize="16dp"
+                    android:layout_weight="0.34" />
+            </LinearLayout>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/text_title_audioguide"
-            android:layout_width="177dp"
-            android:paddingLeft="8dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="Los Esclavos"
-            android:textColor="#ffffff"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:layout_alignTop="@+id/linearLayout" />
-
-        <TextView
-            android:id="@+id/text_subtitle_audioguide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:paddingLeft="8dp"
-            android:textColor="#ffffff"
-            android:text="Info general"
-            android:layout_below="@+id/text_title_audioguide"
-            android:layout_alignLeft="@+id/text_title_audioguide"
-            android:layout_alignStart="@+id/text_title_audioguide" />
 
         <ImageView
             android:id="@+id/btn_more_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/gratis"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/gratis" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
 
     </RelativeLayout>

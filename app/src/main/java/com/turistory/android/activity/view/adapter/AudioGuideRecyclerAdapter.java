@@ -47,8 +47,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
         holder.getTitle().setText(audioguides.get(position).getTitle());
         holder.getSubtitle().setText(audioguides.get(position).getSubtitle());
         holder.getCover().setImageResource(audioguides.get(position).getCover());
-
-        holder.getBtn().setOnClickListener(getOnClickListenerAudioPlayer(position));
+        holder.getCover().setOnClickListener(getOnClickListenerAudioPlayer(position));
     }
 
     private View.OnClickListener getOnClickListenerAudioPlayer(final Integer position) {
