@@ -26,6 +26,7 @@ public class PlaceDetailActivity extends AppCompatActivity
         implements View.OnClickListener {
     public final static String ARG_INDEX = "com.crom.miguiapp.PlaceDetailActivity.index";
     private Place place;
+    protected final static String TAG = "Placedetail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +66,17 @@ public class PlaceDetailActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        if (getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0) >= 0) {
+        /*if (getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0) >= 0) {
             loadDetail(getIntent().getIntExtra(PlaceRecyclerAdapter.PLACE_ID, 0));
-        }
+        }*/
+      /*  Bundle datos = this.getIntent().getExtras();
+        Log.e(TAG, "Datos -------> " +
+                datos);
+        int pos = datos.getInt("PLACE_ID");
+        Log.e(TAG, "Pos -------> " +
+                pos);*/
+        loadDetail(1);
+
     }
 
  /*   @Override
@@ -89,7 +98,10 @@ public class PlaceDetailActivity extends AppCompatActivity
     }*/
 
     private void loadDetail(int intExtra) {
-        this.place = PlacesDataProvider.getPlaces().get(intExtra);
+        Log.e(TAG, "Posicion -------> " +
+                intExtra);
+        this.place = PlacesDataProvider.getPlaces().get(1);
+
         TextView title = (TextView) findViewById(R.id.title_place_detail);
         TextView description = (TextView) findViewById(R.id.description_place_detail);
         ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);

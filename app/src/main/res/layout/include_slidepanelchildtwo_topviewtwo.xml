@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:playpauseview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?colorPrimary"
+    android:layout_height="@attr/actionBarSize"
+    android:background="@color/primary"
     android:elevation="4dp"
     android:gravity="center"
     android:orientation="horizontal">
@@ -15,12 +15,12 @@
         android:elevation="4dp">
 
         <ImageView
-            android:id="@+id/img_bottom_slidetwo"
+            android:id="@+id/covermini_audioplayer"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="?attr/actionBarSize"
             android:padding="2dp"
             android:scaleType="centerCrop"
-            android:src="@mipmap/cartagena"></ImageView>
+            android:src="@mipmap/home_background"></ImageView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:paddingRight="5dp">
 
             <TextView
-                android:id="@+id/txt_playesongname_slidetoptwo"
+                android:id="@+id/title_audioplayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
@@ -47,7 +47,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txt_songartistname_slidetoptwo"
+                android:id="@+id/subtitle_audioplayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
