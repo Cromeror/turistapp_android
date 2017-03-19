@@ -1,6 +1,5 @@
 package com.turistory.android.activity;
 
-import android.*;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
@@ -14,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,7 +24,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.support.v4.app.Fragment;
 
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.common.ConnectionResult;
@@ -35,12 +35,13 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingRequest;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.turistory.android.activity.fragment.MapFragment;
+import com.turistory.android.activity.fragment.PlacesFragment;
 import com.turistory.android.activity.service.GeofenceTransitionsIntentService;
 
 import java.util.ArrayList;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity
     private final String TAG = ".activity.MainActivity";
     private static final String GEOFENCE_ID = "MyGeofenceId";
     private LocationRequest mLocationRequest;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,10 +77,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Button routeBtn = (Button) findViewById(R.id.btn_route);
-        Button placeBtn = (Button) findViewById(R.id.btn_place);
-        routeBtn.setOnClickListener(getOnClicListenerRoute());
-        placeBtn.setOnClickListener(getOnClicListenerPlace());
+        //Button routeBtn = (Button) findViewById(R.id.btn_route);
+        //Button placeBtn = (Button) findViewById(R.id.btn_place);
+        //routeBtn.setOnClickListener(getOnClicListenerRoute());
+        //placeBtn.setOnClickListener(getOnClicListenerPlace());
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
@@ -138,14 +140,20 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction();
+        if (fragment != null)
+            transaction.remove(fragment).commit();
 
         if (id == R.id.nav_routes) {
-            Intent intent = new Intent(MainActivity.this, RoutesActivity.class);
-            startActivity(intent);
-
+            fragment = new MapFragment();
+            transaction.add(R.id.main_container, fragment)
+                    .commit();
         } else if (id == R.id.nav_places) {
-            Intent intent = new Intent(MainActivity.this, PlacesActivity.class);
-            startActivity(intent);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.main_container, new PlacesFragment())
+                    .commit();
 
         } else if (id == R.id.nav_about) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
