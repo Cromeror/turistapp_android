@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashScreen extends Activity{
+public class SplashScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +16,11 @@ public class SplashScreen extends Activity{
             @Override
             public void run() {
 
-                Intent intent = new Intent(SplashScreen.this, AudioGuideActivity.class);
+                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(intent);
                 finish();
 
             }
-        },3000);
+        }, 3000);
     }
-
 }
