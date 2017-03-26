@@ -55,8 +55,8 @@
     <string name="nav_about_us">Quienes Somos</string>
     <string name="nav_routes">Rutas</string>
     <string name="nav_places">Sitios</string>
-    <string name="nav_contact">Contactame</string>
-    <string name="nav_map">mapa</string>
+    <string name="nav_contact">Contactanos</string>
+    <string name="nav_map">Mapa</string>
 
     <string name="map">Map</string>
     <string name="audio">Audio</string>
