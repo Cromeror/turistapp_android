@@ -11,13 +11,20 @@
             android:icon="@drawable/localizacion_24px"
             android:title="@string/nav_places" />
     </group>
-
-    <item android:title="Nosotros">
+    <item android:title="@string/item_nav_navigation">
         <menu>
             <item
-                android:id="@+id/nav_about"
+                android:id="@+id/nav_map"
+                android:icon="@drawable/ic_map"
+                android:title="@string/nav_map" />
+        </menu>
+    </item>
+    <item android:title="@string/item_nav_about">
+        <menu>
+            <item
+                android:id="@+id/nav_about_us"
                 android:icon="@drawable/info"
-                android:title="@string/nav_about" />
+                android:title="@string/nav_about_us" />
             <item
                 android:id="@+id/nav_contact"
                 android:icon="@drawable/ic_menu_manage"

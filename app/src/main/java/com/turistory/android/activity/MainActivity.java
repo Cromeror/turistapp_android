@@ -40,7 +40,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
-import com.turistory.android.activity.fragment.MapFragment;
 import com.turistory.android.activity.fragment.PlacesFragment;
 import com.turistory.android.activity.service.GeofenceTransitionsIntentService;
 
@@ -139,35 +138,34 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction();
-        if (fragment != null)
-            transaction.remove(fragment).commit();
 
-        if (id == R.id.nav_routes) {
-            fragment = new MapFragment();
-            transaction.add(R.id.main_container, fragment)
-                    .commit();
-        } else if (id == R.id.nav_places) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.main_container, new PlacesFragment())
-                    .commit();
-
-        } else if (id == R.id.nav_about) {
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_contact) {
-
-            Intent intent = new Intent(MainActivity.this, ContactusActivity.class);
-            startActivity(intent);
+        switch (item.getItemId()) {
+            case R.id.nav_routes:
+                break;
+            case R.id.nav_places:
+                transaction
+                        .replace(R.id.main_container, new PlacesFragment())
+                        .commit();
+                break;
+            case R.id.nav_about_us:
+                Intent intentAbout = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intentAbout);
+                break;
+            case R.id.nav_contact:
+                Intent intentContactUs = new Intent(MainActivity.this, ContactusActivity.class);
+                startActivity(intentContactUs);
+                break;
+            case R.id.nav_map:
+                Intent intentMap = new Intent(MainActivity.this, MapActivity.class);
+                startActivity(intentMap);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return false;
+        return true;
     }
 
     @Override
