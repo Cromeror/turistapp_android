@@ -10,16 +10,16 @@
             android:id="@+id/nav_places"
             android:icon="@drawable/localizacion_24px"
             android:title="@string/nav_places" />
-        <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/info"
-            android:title="@string/nav_about" />
-        <item
-            android:id="@+id/nav_contact"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/nav_contact" />
     </group>
 
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/info"
+        android:title="@string/nav_about" />
+    <item
+        android:id="@+id/nav_contact"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="@string/nav_contact" />
     <!--  <item android:title="Communicate">
           <menu>
               <item
