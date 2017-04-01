@@ -2,6 +2,7 @@
     <string name="app_name">Turistory</string>
 
     <string name="google_maps_key">AIzaSyBUQ5Fl6P5riOPJkvtumT74UBXpggmOYz0</string>
+    <string name="distance_matrix_key">AIzaSyAEK7yWrzwMeScYiYjaFeAwKXGw-sIyKRI</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

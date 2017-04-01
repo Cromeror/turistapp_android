@@ -9,9 +9,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
@@ -26,11 +29,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.turistory.android.activity.service.Constants;
 import com.turistory.android.activity.service.GeofenceTransitionsIntentService;
 import com.turistory.android.activity.view.custom.CustomMarker;
+import com.turistory.android.communication.DistanceMatrix;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
@@ -197,18 +200,36 @@ public class MapActivity extends FragmentActivity
         LatLng position = new LatLng(entry.getLatitude(),
                 entry.getLongitude());
         map.setInfoWindowAdapter(new CustomMarker(MapActivity.this));
-
         map.addMarker(new MarkerOptions()
-                .position(position)
-                .title(entry.getName())
-                .snippet("Population: 4,137,400"));
+                .position(position));
+    }
+
+    private void getRequest() {
+        String url =
+                "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Seattle&destinations=San+Francisco&key="+
+                getString(R.string.distance_matrix_key);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i("MENSAJE: ", response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("ERROR: ", error.toString());
+                    }
+                });
+        DistanceMatrix.getInstance(this).addToRequestQueue(stringRequest);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
+        getRequest();
         // Empty list for storing geofences.
         mGeofenceList = new ArrayList<>();
     }

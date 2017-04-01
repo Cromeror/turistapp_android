@@ -21,6 +21,7 @@ public class CustomMarker implements GoogleMap.InfoWindowAdapter {
 
     @Override
     public View getInfoWindow(Marker marker) {
+
         return null;
     }
 
