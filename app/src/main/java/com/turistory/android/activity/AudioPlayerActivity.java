@@ -36,6 +36,7 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_player);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
 
@@ -58,6 +59,8 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
 
         jcAudios.add(JcAudio.createFromRaw(audioguide.getTitle(), audioguide.getAudio()));
         player.initPlaylist(jcAudios);
+       // player.initAnonPlaylist(jcAudios);
+        //playAudio(jcAudios.get(0));
         player.registerInvalidPathListener(this);
         adapterSetup();
 
@@ -84,14 +87,14 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                               // listener.onPossitiveButtonClick();
+                                // listener.onPossitiveButtonClick();
                             }
                         })
                 .setNegativeButton("CANCELAR",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                              //  listener.onNegativeButtonClick();
+                                //  listener.onNegativeButtonClick();
                             }
                         });
 
@@ -106,7 +109,7 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
     }
 
     private void loadDetail(int intExtra) {
-       this.audioguide = AudioGuideDataProvider.getAudioGuide().get(intExtra);
+        this.audioguide = AudioGuideDataProvider.getAudioGuide().get(intExtra);
         TextView title = (TextView) findViewById(R.id.title_audioplayer);
         TextView subtitle = (TextView) findViewById(R.id.subtitle_audioplayer);
         ImageView covermini = (ImageView) findViewById(R.id.covermini_audioplayer);
@@ -121,7 +124,9 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
     public void playAudio(JcAudio jcAudio){
         player.playAudio(jcAudio);
 
-        Toast.makeText(this, player.getCurrentAudio().getOrigin().toString(), Toast.LENGTH_SHORT).show();
+
+
+        Toast.makeText(this, player.getCurrentAudio().getTitle().toString(), Toast.LENGTH_SHORT).show();
     }
 
     protected void adapterSetup() {

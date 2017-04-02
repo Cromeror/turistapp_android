@@ -67,7 +67,7 @@ public class JcPlayerView extends LinearLayout implements
         //this.txtCurrentMusic = (TextView) findViewById(R.id.txt_current_music);
         this.seekBar = (SeekBar) findViewById(R.id.seek_bar);
         this.btnPlay.setTag(R.drawable.ic_play_circle);
-
+        seekBar.setEnabled(false);
         btnNext.setOnClickListener(this);
         btnPrev.setOnClickListener(this);
         btnPlay.setOnClickListener(this);
@@ -154,6 +154,9 @@ public class JcPlayerView extends LinearLayout implements
     }
 
     public void next() {
+
+
+
         resetPlayerInfo();
         showProgressBar();
 
@@ -196,6 +199,7 @@ public class JcPlayerView extends LinearLayout implements
     public void onClick(View view) {
         if(initialized)
             if(view.getId() ==  R.id.btn_play) {
+                seekBar.setEnabled(true);
                 YoYo.with(Techniques.Pulse).playOn(btnPlay);
 
                 if (btnPlay.getTag().equals(R.drawable.ic_pause_circle))
@@ -276,6 +280,8 @@ public class JcPlayerView extends LinearLayout implements
         btnPlay.setVisibility(Button.GONE);
         btnNext.setClickable(false);
         btnPrev.setClickable(false);
+
+
     }
 
     private void dismissProgressBar(){
@@ -298,8 +304,8 @@ public class JcPlayerView extends LinearLayout implements
                 // Minutes
                 (minute < 10 ? "0"+minute : minute+"")
                         + ":" +
-                 // Seconds
-                 (second < 10 ? "0"+second : second+"");
+                        // Seconds
+                        (second < 10 ? "0"+second : second+"");
 
         seekBar.setMax(duration);
 
@@ -332,11 +338,11 @@ public class JcPlayerView extends LinearLayout implements
     @Override
     public void onPaused() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-          btnPlay.setBackground(ResourcesCompat.getDrawable(getResources(),
-                                R.drawable.ic_play_circle, null));
+            btnPlay.setBackground(ResourcesCompat.getDrawable(getResources(),
+                    R.drawable.ic_play_circle, null));
         } else {
-          btnPlay.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(),
-                                        R.drawable.ic_play_circle, null));
+            btnPlay.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(),
+                    R.drawable.ic_play_circle, null));
         }
         btnPlay.setTag(R.drawable.ic_play_circle);
     }
@@ -349,11 +355,11 @@ public class JcPlayerView extends LinearLayout implements
     @Override
     public void onPlaying() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-          btnPlay.setBackground(ResourcesCompat.getDrawable(getResources(),
-                                R.drawable.ic_pause_circle, null));
+            btnPlay.setBackground(ResourcesCompat.getDrawable(getResources(),
+                    R.drawable.ic_pause_circle, null));
         } else {
-          btnPlay.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(),
-                                        R.drawable.ic_pause_circle, null));
+            btnPlay.setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(),
+                    R.drawable.ic_pause_circle, null));
         }
         btnPlay.setTag(R.drawable.ic_pause_circle);
     }
