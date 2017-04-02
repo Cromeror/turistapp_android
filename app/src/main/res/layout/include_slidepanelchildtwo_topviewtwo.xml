@@ -3,7 +3,7 @@
     xmlns:playpauseview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@attr/actionBarSize"
-    android:background="@color/primary"
+    android:background="#ffffff"
     android:elevation="4dp"
     android:gravity="center"
     android:orientation="horizontal">
@@ -15,10 +15,10 @@
         android:elevation="4dp">
 
         <ImageView
-            android:id="@+id/covermini_audioplayer"
+            android:id="@+id/covermini_audioplayer2"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="?attr/actionBarSize"
-            android:padding="2dp"
+            android:padding="8dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/home_background"></ImageView>
 
@@ -31,7 +31,7 @@
             android:paddingRight="5dp">
 
             <TextView
-                android:id="@+id/title_audioplayer"
+                android:id="@+id/title_audioplayer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
@@ -43,24 +43,24 @@
                 android:singleLine="true"
                 android:text="La torre del reloj"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:textColor="@android:color/black"
+                />
 
             <TextView
-                android:id="@+id/subtitle_audioplayer"
+                android:id="@+id/subtitle_audioplayer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:singleLine="true"
                 android:text="La ruta de los esclavos"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@android:color/white"
+                android:textColor="#9e9e9e"
                 android:textStyle="normal" />
         </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/rel_bottombar_moreicon"
+        android:id="@+id/rel_bottombar_moreicon2"
         android:layout_width="96dp"
         android:layout_height="48dp"
         android:layout_centerVertical="true"
@@ -68,21 +68,21 @@
         android:layout_alignParentEnd="true">
 
         <ImageView
-            android:id="@+id/bottombar_map"
+            android:id="@+id/bottombar_map2"
             android:layout_width="48dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/bottombar_leer"
-            android:background="?colorPrimary"
+            android:background="@android:color/white"
             android:clickable="true"
             android:scaleType="centerInside"
             android:src="@drawable/ic_map" />
 
         <ImageButton
-            android:id="@+id/bottombar_leer"
+            android:id="@+id/bottombar_leer2"
             android:layout_width="35dp"
             android:layout_height="match_parent"
-            android:background="?colorPrimary"
+            android:background="@android:color/white"
             android:clickable="true"
             android:scaleType="centerInside"
             android:src="@drawable/ic_description"

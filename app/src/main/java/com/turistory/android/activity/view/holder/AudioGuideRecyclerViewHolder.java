@@ -22,7 +22,7 @@ public class AudioGuideRecyclerViewHolder extends RecyclerView.ViewHolder {
         cover = (ImageView) itemView.findViewById(R.id.item_audioguide_list_img_cover);
         title = (TextView) itemView.findViewById(R.id.text_title_audioguide);
         subtitle = (TextView) itemView.findViewById(R.id.text_subtitle_audioguide);
-        btn = (ImageView) itemView.findViewById(R.id.btn_more_play);
+        //btn = (ImageView) itemView.findViewById(R.id.btn_more_play);
 
     }
 
