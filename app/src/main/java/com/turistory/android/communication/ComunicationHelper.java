@@ -14,13 +14,13 @@ import com.android.volley.toolbox.Volley;
  * @version 1.0
  */
 
-public class DistanceMatrix {
-    private static DistanceMatrix mInstance;
+public class ComunicationHelper {
+    private static ComunicationHelper mInstance;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
     private static Context mCtx;
 
-    private DistanceMatrix(Context context) {
+    private ComunicationHelper(Context context) {
         mCtx = context;
         mRequestQueue = getRequestQueue();
 
@@ -41,9 +41,9 @@ public class DistanceMatrix {
                 });
     }
 
-    public static synchronized DistanceMatrix getInstance(Context context) {
+    public static synchronized ComunicationHelper getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new DistanceMatrix(context);
+            mInstance = new ComunicationHelper(context);
         }
         return mInstance;
     }

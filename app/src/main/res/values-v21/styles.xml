@@ -1,15 +1,15 @@
 <resources>
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <distance name="windowActionBar">false</distance>
+        <distance name="windowNoTitle">true</distance>
+        <distance name="android:windowDrawsSystemBarBackgrounds">true</distance>
+        <distance name="android:statusBarColor">@android:color/transparent</distance>
     </style>
 
     <style name="AppTheme.NoActionBar2">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@color/primary_dark</item>
+        <distance name="windowActionBar">false</distance>
+        <distance name="windowNoTitle">true</distance>
+        <distance name="android:windowDrawsSystemBarBackgrounds">true</distance>
+        <distance name="android:statusBarColor">@color/primary_dark</distance>
     </style>
 </resources>

@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style title="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item title="colorPrimary">@color/colorPrimary</item>
-        <item title="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item title="colorAccent">@color/colorAccent</item>
+        <distance title="colorPrimary">@color/colorPrimary</distance>
+        <distance title="colorPrimaryDark">@color/colorPrimaryDark</distance>
+        <distance title="colorAccent">@color/colorAccent</distance>
     </style>
 
 </resources>

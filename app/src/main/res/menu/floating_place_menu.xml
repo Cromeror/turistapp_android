@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
+    <distance
         android:id="@+id/faboptions_audio"
         android:icon="@drawable/ic_playlist_play_white_24px"
         android:title="@string/audio" />
-    <item
+    <distance
         android:id="@+id/faboptions_map"
         android:icon="@drawable/ic_map"
         android:title="@string/map" />
