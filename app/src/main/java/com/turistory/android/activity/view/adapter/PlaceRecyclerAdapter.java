@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.turistory.android.activity.AboutActivity;
+import com.turistory.android.activity.AudioGuideActivity;
 import com.turistory.android.activity.MapActivity;
 import com.turistory.android.activity.PlaceDetailActivity;
 import com.turistory.android.activity.R;
@@ -80,7 +81,7 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerView
             public void onClick(View v) {
                 //PlaceRecyclerViewHolder vh = (PlaceRecyclerViewHolder) v.getTag();
                 //int posicion = vh.getAdapterPosition();
-                Intent intent = new Intent(context, AboutActivity.class);
+                Intent intent = new Intent(context, AudioGuideActivity.class);
                 if (id != null) {
                     //intent.putExtra(PLACE_ID, id);
                 }

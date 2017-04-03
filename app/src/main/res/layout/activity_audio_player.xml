@@ -1,90 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_audio_player"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="false"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="60dp"
+        android:background="@color/toolbar_white_transparent"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-
-
-        <!--    <include
-                android:id="@+id/slidepanelchildtwo_topviewone"
-                layout="@layout/include_slidepanelchildtwo_topviewone"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize" />-->
-
-
-            <include
-                   android:id="@+id/slidepanelchildtwo_topviewtwo"
-                   layout="@layout/include_slidepanelchildtwo_topviewtwo"
-                   android:layout_width="match_parent"
-                   android:layout_height="?attr/actionBarSize"
-                   android:visibility="visible"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="420dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/cover_audioplayer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/home_background"
-
-                    android:visibility="visible"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"></ImageView>
-
-
-            </RelativeLayout>
-
-
-          <!--  <include
-                android:id="@+id/reproductor"
-                layout="@layout/include_slidepanelchildtwo_bottomview"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/bottom_control_panel"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />-->
-        </RelativeLayout>
-
-        <com.example.jean.jcplayer.JcPlayerView
-            android:id="@+id/jcplayer"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_toLeftOf="@+id/rel_bottombar_moreicon"
+            android:elevation="4dp">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/covermini_audioplayer"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="8dp"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/calle"></ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_audioplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
+                    android:freezesText="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="La torre del reloj"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/subtitle_audioplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:singleLine="true"
+                    android:text="Ruta de los esclavos"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#757575"
+                    android:textStyle="normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_bottombar_moreicon"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <ImageButton
+                android:id="@+id/bottombar_leer"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/bottombar_map"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:tint="#616161"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_description" />
+
+            <ImageButton
+                android:id="@+id/bottombar_map"
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:tint="#616161"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_map"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/cover_audioplayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/calle">
+    </ImageView>
+
+    <com.example.jean.jcplayer.JcPlayerView
+        android:id="@+id/jcplayer"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

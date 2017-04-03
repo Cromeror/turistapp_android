@@ -23,7 +23,7 @@
             android:contentDescription="@string/img_cover"
 
             android:scaleType="centerCrop"
-            android:src="@mipmap/plaza_de_los_coches"
+            android:src="@mipmap/calle"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -31,8 +31,8 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="#60000000"
+            android:layout_height="64dp"
+            android:background="#91000000"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
@@ -51,111 +51,42 @@
                     android:layout_above="@+id/text_subtitle_audioguide"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_gravity="bottom"
-                    android:paddingLeft="8dp"
-                    android:text="Los Esclavos"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="7dp"
+                    android:text="Calle de las Mercedes"
                     android:textColor="#ffffff"
-                    android:textSize="22dp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/text_subtitle_audioguide"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_above="@+id/linearLayout"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginBottom="12dp"
-                    android:paddingLeft="8dp"
                     android:text="Informacion general"
                     android:textColor="#ffffff"
-                    android:textSize="16dp"
-                    android:layout_weight="0.34" />
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btn_more_play"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="16dp"
-            app:srcCompat="@drawable/gratis"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
 
+        <TextView
+            android:id="@+id/precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f44336"
+            android:text="GRATIS"
+            android:padding="2dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
 
-<!--<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cardview"
-    android:layout_width="match_parent"
-    android:layout_height="58dp"
-    android:layout_marginBottom="@dimen/card_light_padding">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-
-
-        <ImageView
-            android:id="@+id/item_audioguide_list_img_cover"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
-            android:padding="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_default_album_art"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp">
-
-            <ImageView
-                android:id="@+id/btn_more_play"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-
-                android:clickable="true"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_arrow_back_black" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/btn_more_play"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/text_title_audioguide"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:text=""
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/text_subtitle_audioguide"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
-                    android:singleLine="true"
-                    android:text=""
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
-    </LinearLayout>
-</android.support.v7.widget.CardView>-->
