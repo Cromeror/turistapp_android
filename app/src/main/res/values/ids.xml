@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <distance name="texto" type="id">sdhfsdf</distance>
+    <item name="texto" type="id">sdhfsdf</item>
 </resources>
