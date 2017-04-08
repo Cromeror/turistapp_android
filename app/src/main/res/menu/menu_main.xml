@@ -1,14 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
+    <distance
         android:id="@+id/action_search"
         android:icon="@android:drawable/ic_menu_search"
         android:title="Buscar"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always|collapseActionView" />
 
-    <item
+    <distance
         android:id="@+id/map_item2"
         android:icon="@drawable/ic_map"
         android:title="@string/map_item"
