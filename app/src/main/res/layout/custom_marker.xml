@@ -15,27 +15,7 @@
         android:src="@mipmap/calle" />
 
     <TextView
-        android:id="@+id/text_title"
-        android:layout_width="wrap_content"
-        android:layout_height="18dp"
-        android:layout_alignTop="@+id/image_cover"
-        android:layout_toRightOf="@+id/image_cover"
-        android:text="Sitio Histórico"
-        android:textSize="17sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:text="Audioguia: 1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:id="@+id/textAudioguía"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/image_cover"
-        android:layout_toEndOf="@+id/image_cover" />
-
-    <TextView
-        android:text="GRATIS"
+        android:text="Gratis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#4caf50"
@@ -48,13 +28,33 @@
         android:layout_toEndOf="@+id/image_cover" />
 
     <TextView
-        android:text="Distancia:"
+        android:text="Cartagena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text_distance"
         android:textSize="14sp"
 
-        android:layout_above="@+id/textAudioguía"
+        android:layout_below="@+id/textView7"
+        android:layout_toRightOf="@+id/image_cover"
+        android:layout_toEndOf="@+id/image_cover" />
+
+    <TextView
+        android:text="Audioguia: 1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:id="@+id/textAudioguía"
+        android:layout_below="@+id/text_distance"
+        android:layout_toRightOf="@+id/image_cover"
+        android:layout_toEndOf="@+id/image_cover" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:text="Sitio Histórico"
+        android:textSize="17sp"
+        android:textStyle="bold"
         android:layout_toRightOf="@+id/image_cover"
         android:layout_toEndOf="@+id/image_cover" />
 
