@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.turistory.android.activity.AboutActivity;
 import com.turistory.android.activity.AudioGuideActivity;
 import com.turistory.android.activity.MapActivity;
-import com.turistory.android.activity.PlaceDetailActivity;
 import com.turistory.android.activity.R;
 import com.turistory.android.activity.view.holder.PlaceRecyclerViewHolder;
 import com.turistory.android.data.Place;
