@@ -1,0 +1,91 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleTextAppearance="@style/ExpandedToolbar"
+            app:collapsedTitleTextAppearance="@style/CollapsedToobar"
+
+            app:expandedTitleMarginTop="227dp"
+            app:expandedTitleGravity="center_horizontal"
+            app:contentScrim="@color/primary">
+
+            <ImageView
+                android:id="@+id/expandedImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@mipmap/torre_del_reloj_portada"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="200dp"
+                android:background="@color/primary">
+
+            </RelativeLayout>
+
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:titleTextColor="@color/white"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" >
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <TextView
+            android:id="@+id/textread"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua.
+
+La torre,  queda entre las plaza de los coches y la plaza de la paz, su creación tuvo lugar en el año de 1601 y en sus inicios fue llamada “la puerta del puente”, debido al puente de madera que pasaba por encima del caño de San Anastasio, uniendo así, la isla de Getsemaní, con la isla de Calamarí, esta última es hoy en día el barrio centro.
+Con el transcurso de los años esta construcción adquiere distintos nombres; inicialmente llamada “puerta del puente” más tarde “puerta del reloj” y por último “torre del reloj” o “reloj público”; como es conocida actualmente.
+A lo largo de la historia, la arquitectura de la torre y el diseño del reloj han sufrido cambios y modificaciones por diversas razones.
+
+En 1631 esta obra se convirtió en la puerta principal de la ciudad desde que se concluyó la construcción del cerco amurallado. Años más tarde, fue parcialmente destruida por el barón de Pointis quien fue un pirata Francés responsable del saqueo pirata de cartagena en el año 1697.
+
+En 1704 la restauración de la torre estuvo en manos del ingeniero Juan Herrera y Sotomayor, quien fue el responsable de agregar una fachada barroca y las cuatro columnas toscanas que la adornan.
+
+En el año 1874, el reloj fue reemplazado por un reloj traído desde Estados Unidos.
+
+En el año de 1888 por orden de la autoridad local, se le realizó una nueva restauración a la torre, el encargado de esta labor fue el arquitecto Luis Felipe Jaspe Franco, quien reemplazó la estructura cuadrada por un diseño octagonal. Cambiando visiblemente de un estilo barroco a un estilo gótico.
+
+En 1937 se incorpora a la torre un reloj importado de Suiza.
+
+En el año 2014 con el ánimo de recuperar el diseño original del reloj, se reincorporaron  los números romanos, con la particularidad de representar el número 4 con 4 líneas. Hay muchas historias sobre el origen del número cuatro en los relojes con cuatro líneas, una de ellas cuenta que un relojero se equivocó y el rey lo mandó a decapitar, entonces en oposición a ese acto de crueldad, los demás relojeros decidieron seguir con el número con 4 líneas." />
+        />
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -153,12 +153,13 @@ public class JcAudioPlayer {
     }
 
     public void createNewNotification(int iconResource){
-        if(currentJcAudio != null)
-            jcNotificationPlayer.createNotificationPlayer(currentJcAudio.getTitle(), iconResource);
+        //if(currentJcAudio != null)
+            //jcNotificationPlayer.createNotificationPlayer(currentJcAudio.getTitle(), iconResource);
     }
 
     public void updateNotification(){
-        jcNotificationPlayer.updateNotification();
+
+        //jcNotificationPlayer.updateNotification();
     }
 
     public void seekTo(int time){

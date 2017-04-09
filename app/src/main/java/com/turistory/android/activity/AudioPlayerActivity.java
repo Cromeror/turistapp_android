@@ -1,5 +1,6 @@
 package com.turistory.android.activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,22 +24,23 @@ import com.turistory.android.data.AudioGuideDataProvider;
 
 import java.util.ArrayList;
 
-public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerService.OnInvalidPathListener{
+public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerService.OnInvalidPathListener {
     private AudioGuide audioguide;
     private AudioAdapter audioAdapter;
     private JcPlayerView player;
-    private  ImageButton btnleer;
+    private ImageButton btnleer;
+    private Context context;
     protected final static String TAG = "AudioPlayer";
 //implements JcPlayerService.OnInvalidPathListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.context = context;
         setContentView(R.layout.activity_audio_player);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-
 
 
         Bundle datos = this.getIntent().getExtras();
@@ -59,7 +61,7 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
 
         jcAudios.add(JcAudio.createFromRaw(audioguide.getTitle(), audioguide.getAudio()));
         player.initPlaylist(jcAudios);
-       // player.initAnonPlaylist(jcAudios);
+        // player.initAnonPlaylist(jcAudios);
         //playAudio(jcAudios.get(0));
         player.registerInvalidPathListener(this);
         adapterSetup();
@@ -67,45 +69,33 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
         ImageButton BtnLeer = (ImageButton) findViewById(R.id.bottombar_leer);
         BtnLeer.setOnClickListener(getOnclicListenerBtnLeer());
 
+
     }
 
     private View.OnClickListener getOnclicListenerBtnLeer() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createSimpleDialog();
+
+                player.pause();
+
+
+
+            Intent intent = new Intent(AudioPlayerActivity.this, ReadActivity.class);
+            intent.putExtra("id", audioguide.getId());
+            startActivity(intent);
+            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+
+
             }
         };
     }
 
-    public AlertDialog createSimpleDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setTitle("Titulo")
-                .setMessage("El Mensaje para el usuario")
-                .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // listener.onPossitiveButtonClick();
-                            }
-                        })
-                .setNegativeButton("CANCELAR",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //  listener.onNegativeButtonClick();
-                            }
-                        });
-
-        return builder.create();
-    }
 
     @Override
+
     protected void onStart() {
         super.onStart();
-
-
     }
 
     private void loadDetail(int intExtra) {
@@ -115,8 +105,8 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
         ImageView covermini = (ImageView) findViewById(R.id.covermini_audioplayer);
         ImageView cover = (ImageView) findViewById(R.id.cover_audioplayer);
         title.setText(this.audioguide.getTitle());
-        covermini.setImageResource(audioguide.getCover());
-        subtitle.setText(audioguide.getSubtitle());
+        covermini.setImageResource(audioguide.getPortada());
+        subtitle.setText(audioguide.getRuta());
         cover.setImageResource(audioguide.getCover());
 
     }
@@ -125,8 +115,6 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
         player.playAudio(jcAudio);
 
 
-
-        Toast.makeText(this, player.getCurrentAudio().getTitle().toString(), Toast.LENGTH_SHORT).show();
     }
 
     protected void adapterSetup() {
@@ -137,7 +125,27 @@ public class AudioPlayerActivity extends AppCompatActivity  implements JcPlayerS
     @Override
     public void onPause(){
         super.onPause();
-        player.createNotification();
+        player.pause();
+        //player.createNotification();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+
+        //player.createNotification();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        player.pause();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
     }
 
     @Override

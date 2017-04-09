@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#ff6d00</color>
-    <color name="primary_dark">#ef6c00</color>
+    <color name="primary">#fb8c00</color>
+    <color name="primary_dark">#f57c00</color>
     <color name="primary_light">#FFCCBC</color>
     <color name="accent">#FFCA28</color>
     <color name="primary_text">#212121</color>
@@ -10,7 +10,7 @@
     <color name="divider">#BDBDBD</color>
     <color name="colorAccent">#D84315</color>
 
-    <color name="toolbar_white_transparent">#e9ffffff</color>
+    <color name="toolbar_white_transparent">#d9ffffff</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00FFFFFF</color>

@@ -29,7 +29,7 @@
             android:contentDescription="@string/img_cover"
             android:padding="@dimen/card_padding"
             android:scaleType="fitXY"
-            android:src="@mipmap/tower_clock" />
+            android:src="@mipmap/torre_del_reloj_portada" />
 
         <LinearLayout
             android:layout_width="wrap_content"

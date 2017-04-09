@@ -13,7 +13,8 @@ import com.turistory.android.activity.R;
 
 public class AudioGuideRecyclerViewHolder extends RecyclerView.ViewHolder {
     private TextView title;
-    private TextView subtitle;
+    private TextView ruta;
+    private TextView estado;
     private ImageView cover;
     private ImageView btn;
 
@@ -21,8 +22,9 @@ public class AudioGuideRecyclerViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         cover = (ImageView) itemView.findViewById(R.id.item_audioguide_list_img_cover);
         title = (TextView) itemView.findViewById(R.id.text_title_audioguide);
-        subtitle = (TextView) itemView.findViewById(R.id.text_subtitle_audioguide);
-        //btn = (ImageView) itemView.findViewById(R.id.btn_more_play);
+        ruta = (TextView) itemView.findViewById(R.id.text_subtitle_audioguide);
+        estado = (TextView) itemView.findViewById(R.id.estado);
+
 
     }
 
@@ -34,12 +36,20 @@ public class AudioGuideRecyclerViewHolder extends RecyclerView.ViewHolder {
         this.title = title;
     }
 
-    public TextView getSubtitle() {
-        return subtitle;
+    public TextView getRuta() {
+        return ruta;
     }
 
-    public void setSubtitle(TextView subtitle) {
-        this.subtitle = subtitle;
+    public void setRuta(TextView ruta) {
+        this.ruta = ruta;
+    }
+
+    public TextView getEstado() {
+        return estado;
+    }
+
+    public void setEstado(TextView estado) {
+        this.estado = estado;
     }
 
     public ImageView getCover() {
@@ -57,5 +67,4 @@ public class AudioGuideRecyclerViewHolder extends RecyclerView.ViewHolder {
     public void setBtn(ImageView btn) {
         this.btn = btn;
     }
-
 }

@@ -10,18 +10,23 @@ public class AudioGuide {
 
     private int id;
     private String title;
-    private String subtitle;
+    private String ruta;
     private  int cover;
+    private int portada;
     private int audio;
+    private  String guion;
+    private String estado;
 
-    public AudioGuide(int id, String title, String subtitle, int cover, int audio) {
+    public AudioGuide(int id, String title, String ruta, int cover, int portada, int audio, String guion, String estado) {
         this.id = id;
         this.title = title;
-        this.subtitle = subtitle;
+        this.ruta = ruta;
         this.cover = cover;
+        this.portada = portada;
         this.audio = audio;
+        this.guion = guion;
+        this.estado = estado;
     }
-
 
     public int getId() {
         return id;
@@ -31,12 +36,20 @@ public class AudioGuide {
         this.id = id;
     }
 
-    public int getAudio() {
-        return audio;
+    public String getTitle() {
+        return title;
     }
 
-    public void setAudio(int audio) {
-        this.audio = audio;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
     }
 
     public int getCover() {
@@ -47,19 +60,35 @@ public class AudioGuide {
         this.cover = cover;
     }
 
-    public String getSubtitle() {
-        return subtitle;
+    public int getPortada() {
+        return portada;
     }
 
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
+    public void setPortada(int portada) {
+        this.portada = portada;
     }
 
-    public String getTitle() {
-        return title;
+    public int getAudio() {
+        return audio;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setAudio(int audio) {
+        this.audio = audio;
+    }
+
+    public String getGuion() {
+        return guion;
+    }
+
+    public void setGuion(String guion) {
+        this.guion = guion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
