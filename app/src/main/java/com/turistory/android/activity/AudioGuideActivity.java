@@ -1,5 +1,6 @@
 package com.turistory.android.activity;
 
+import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.turistory.android.activity.view.adapter.AudioGuideRecyclerAdapter;
 import com.turistory.android.activity.view.adapter.PlaceRecyclerAdapter;
@@ -55,6 +57,8 @@ public class AudioGuideActivity extends AppCompatActivity implements SearchView.
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         searchView.setOnQueryTextListener(this);
 
+
+
         MenuItemCompat.setOnActionExpandListener(item,new MenuItemCompat.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
@@ -71,6 +75,8 @@ public class AudioGuideActivity extends AppCompatActivity implements SearchView.
         });
         return true;
     }
+
+
     @Override
     public boolean onQueryTextChange(String newText) {
         final List<AudioGuide> filteredModelList = filter(mCountryModel, newText);
@@ -90,8 +96,9 @@ public class AudioGuideActivity extends AppCompatActivity implements SearchView.
         final List<AudioGuide> filteredModelList = new ArrayList<>();
         for (AudioGuide model : models) {
             final String title = model.getTitle().toLowerCase();
-            final String route = model.getSubtitle().toLowerCase();
-            if (title.contains(query) || route.contains(query)) {
+            final String route = model.getRuta().toLowerCase();
+            final String estado = model.getEstado().toLowerCase();
+            if (title.contains(query) || route.contains(query) || estado.contains(query)) {
                 filteredModelList.add(model);
             }
         }

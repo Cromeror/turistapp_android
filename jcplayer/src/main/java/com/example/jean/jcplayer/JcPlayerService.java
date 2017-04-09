@@ -35,7 +35,7 @@ public class JcPlayerService extends Service implements
     private JcAudio currentJcAudio;
     private List<JcPlayerServiceListener> jcPlayerServiceListeners;
     private List<OnInvalidPathListener> invalidPathListeners;
-    private JcPlayerServiceListener notificationListener;
+    //private JcPlayerServiceListener notificationListener;
     private AssetFileDescriptor assetFileDescriptor = null; // For Asset and Raw file.
 
 
@@ -60,7 +60,7 @@ public class JcPlayerService extends Service implements
     }
 
     public void registerNotificationListener(JcPlayerServiceListener notificationListener){
-        this.notificationListener = notificationListener;
+        //this.notificationListener = notificationListener;
     }
 
     public void registerServicePlayerListener(JcPlayerServiceListener jcPlayerServiceListener){
@@ -107,7 +107,7 @@ public class JcPlayerService extends Service implements
         for (JcPlayerServiceListener jcPlayerServiceListener : jcPlayerServiceListeners)
             jcPlayerServiceListener.onPaused();
 
-        if (notificationListener != null) notificationListener.onPaused();
+        //if (notificationListener != null) notificationListener.onPaused();
     }
 
     public void destroy(){
@@ -184,7 +184,7 @@ public class JcPlayerService extends Service implements
             for(JcPlayerServiceListener jcPlayerServiceListener : jcPlayerServiceListeners)
                 jcPlayerServiceListener.onPlaying();
 
-            if (notificationListener != null) notificationListener.onPlaying();
+           // if (notificationListener != null) notificationListener.onPlaying();
 
         }else
             throwError(jcAudio.getPath(), jcAudio.getOrigin());
@@ -204,9 +204,9 @@ public class JcPlayerService extends Service implements
                             for(JcPlayerServiceListener jcPlayerServiceListener : jcPlayerServiceListeners)
                                 jcPlayerServiceListener.onTimeChanged(mediaPlayer.getCurrentPosition());
                         }
-                        if (notificationListener != null) {
-                            notificationListener.onTimeChanged(mediaPlayer.getCurrentPosition());
-                        }
+                        //if (notificationListener != null) {
+                          //  notificationListener.onTimeChanged(mediaPlayer.getCurrentPosition());
+                        //}
                         Thread.sleep(1000);
                     } catch (IllegalStateException | InterruptedException | NullPointerException e) {
                         e.printStackTrace();
@@ -229,7 +229,7 @@ public class JcPlayerService extends Service implements
             }
         }
 
-        if(notificationListener != null) notificationListener.onCompletedAudio();
+        //if(notificationListener != null) notificationListener.onCompletedAudio();
     }
 
     private void throwError(String path, Origin origin) {
@@ -317,10 +317,10 @@ public class JcPlayerService extends Service implements
                 jcPlayerServiceListener.onPreparedAudio(currentJcAudio.getTitle(), mediaPlayer.getDuration());
             }
 
-        if(notificationListener != null) {
-            notificationListener.updateTitle(currentJcAudio.getTitle());
-            notificationListener.onPreparedAudio(currentJcAudio.getTitle(), mediaPlayer.getDuration());
-        }
+       // if(notificationListener != null) {
+         //   notificationListener.updateTitle(currentJcAudio.getTitle());
+           // notificationListener.onPreparedAudio(currentJcAudio.getTitle(), mediaPlayer.getDuration());
+        //}
     }
 
     public JcAudio getCurrentAudio() {
