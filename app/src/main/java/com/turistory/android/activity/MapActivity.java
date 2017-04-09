@@ -3,6 +3,7 @@ package com.turistory.android.activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +12,10 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
@@ -24,14 +29,22 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.turistory.android.activity.service.Constants;
 import com.turistory.android.activity.service.GeofenceTransitionsIntentService;
 import com.turistory.android.activity.view.custom.CustomMarker;
+import com.turistory.android.activity.view.custom.data.MarkerPlaceData;
+import com.turistory.android.communication.ComunicationHelper;
+import com.turistory.android.communication.DistanceMatrixHelperJson;
+import com.turistory.android.communication.dto.distance_matrix.DistanceMatrix;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +55,7 @@ import java.util.List;
 
 public class MapActivity extends FragmentActivity
         implements OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener,
-        ResultCallback<Status> {
+        ResultCallback<Status>, GoogleMap.OnMarkerClickListener {
 
     public final static String POSITION_LAT = MapActivity.class.getPackage() + ".position.latitude";
     public final static String POSITION_LON = MapActivity.class.getPackage() + ".position.longitude";
@@ -87,6 +100,7 @@ public class MapActivity extends FragmentActivity
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+        map.setOnMarkerClickListener(this);
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         map.setMyLocationEnabled(true);
     }
@@ -97,7 +111,7 @@ public class MapActivity extends FragmentActivity
      */
     public void populateGeofenceList() {
         for (Place place : PlacesDataProvider.getPlaces()) {
-            Log.i("#####POPULATE", place.getLatitude() + "");
+            //Log.i("#####POPULATE", place.getLatitude() + "");
             mGeofenceList.add(new Geofence.Builder()
                     // Set the request ID of the geofence. This is a string to identify this
                     // geofence.
@@ -195,8 +209,10 @@ public class MapActivity extends FragmentActivity
         LatLng position = new LatLng(entry.getLatitude(),
                 entry.getLongitude());
         map.setInfoWindowAdapter(new CustomMarker(MapActivity.this));
-        map.addMarker(new MarkerOptions()
-                .position(position));
+        Marker marker = map.addMarker(new MarkerOptions()
+                .position(position)
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_headphone_32px)));
+        marker.setTag(new MarkerPlaceData(entry.getName(), ""));
     }
 
     @Override
@@ -285,5 +301,54 @@ public class MapActivity extends FragmentActivity
     @Override
     public void onResult(@NonNull Status status) {
 
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        String origins = mLastLocation.getLatitude() + "," + mLastLocation.getLongitude();
+        String destinations = marker.getPosition().latitude + "," + marker.getPosition().longitude;
+        String url =
+                "https://maps.googleapis.com/maps/api/distancematrix/json" +
+                        "?origins=" + origins +
+                        "&destinations=" + destinations +
+                        "&key=" + getString(R.string.distance_matrix_key);
+        Log.i("URL", url);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new ResponseDistanceMarker(marker),
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("ERROR: ", error.toString());
+                    }
+                });
+        ComunicationHelper.getInstance(this).addToRequestQueue(stringRequest);
+
+        return false;
+    }
+
+    static class ResponseDistanceMarker implements Response.Listener<String> {
+        private Marker marker;
+
+        ResponseDistanceMarker(Marker marker) {
+            this.marker = marker;
+        }
+
+        @Override
+        public void onResponse(String response) {
+            StringReader strReaderResponse = new StringReader(response);
+            DistanceMatrixHelperJson helperDistance = new DistanceMatrixHelperJson();
+
+            try {
+                DistanceMatrix distance = helperDistance.readJsonStream(strReaderResponse);
+                if (!distance.getRows().isEmpty()) {
+                    assert ((MarkerPlaceData) marker.getTag()) != null;
+                    ((MarkerPlaceData) marker.getTag())
+                            .setDistance(distance.getRows().get(0).getDistance().getText());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
