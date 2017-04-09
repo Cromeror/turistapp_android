@@ -42,4 +42,13 @@ public class Element {
     public void setDuration(Item duration) {
         this.duration = duration;
     }
+
+    @Override
+    public String toString() {
+        return "Element{" +
+                "distance=" + distance +
+                ", duration=" + duration +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

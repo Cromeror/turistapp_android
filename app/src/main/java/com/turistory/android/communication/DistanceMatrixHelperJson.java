@@ -1,12 +1,12 @@
 package com.turistory.android.communication;
 
 import android.util.JsonReader;
+import android.util.Log;
 
 import com.turistory.android.communication.dto.distance_matrix.*;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,27 +16,35 @@ import java.util.List;
  */
 
 public class DistanceMatrixHelperJson {
-    public List<DistanceMatrix> readJsonStream(InputStream in) throws IOException {
-        JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
+    public DistanceMatrix readJsonStream(Reader in) throws IOException {
+
+        JsonReader reader = new JsonReader(in);
         try {
-            return readMessagesArray(reader);
+            return readDistance(reader);
         } finally {
             reader.close();
         }
     }
 
-    public List<DistanceMatrix> readMessagesArray(JsonReader reader) throws IOException {
-        List<DistanceMatrix> distances = new ArrayList<DistanceMatrix>();
+    /**
+     * Lee un objeto JSON Distance Matrix
+     *
+     * @param reader
+     * @return
+     * @throws IOException
+     */
+    public DistanceMatrix readDistance(JsonReader reader) throws IOException {
+        DistanceMatrix distance;
 
-        reader.beginArray();
-        while (reader.hasNext()) {
-            distances.add(readMessage(reader));
-        }
-        reader.endArray();
-        return distances;
+        reader.beginObject();
+        //while (reader.hasNext()) {
+        distance = readDistanceMatrix(reader);
+        //}
+        reader.endObject();
+        return distance;
     }
 
-    public DistanceMatrix readMessage(JsonReader reader) throws IOException {
+    public DistanceMatrix readDistanceMatrix(JsonReader reader) throws IOException {
         List<String> destination_addresses = null;
         List<String> origin_addresses = null;
         List<Element> rows = null;
@@ -44,7 +52,6 @@ public class DistanceMatrixHelperJson {
 
         List<Double> geo = null;
 
-        reader.beginObject();
         while (reader.hasNext()) {
             String name = reader.nextName();
             switch (name) {
@@ -62,10 +69,8 @@ public class DistanceMatrixHelperJson {
                     break;
                 default:
                     reader.skipValue();
-
             }
         }
-        reader.endObject();
         return new DistanceMatrix(destination_addresses, origin_addresses, rows, status);
     }
 
@@ -74,32 +79,42 @@ public class DistanceMatrixHelperJson {
 
         reader.beginArray();
         while (reader.hasNext()) {
-            elements.add(readElement(reader));
+            elements.add(readElementArray(reader));
         }
         reader.endArray();
         return elements;
     }
 
-    private Element readElement(JsonReader reader) throws IOException {
+    private Element readElementArray(JsonReader reader) throws IOException {
         Item distance = null;
         Item duration = null;
         String status = null;
-
         reader.beginObject();
         while (reader.hasNext()) {
-            String name = reader.nextName();
-            switch (name) {
-                case ("distance"):
-                    distance = readItem(reader);
+            switch (reader.nextName()) {
+                case ("elements"):
+                    reader.beginArray();
+                    while (reader.hasNext()) {
+                        reader.beginObject();
+                        while (reader.hasNext()) {
+                            switch (reader.nextName()) {
+                                case ("distance"):
+                                    distance = readItem(reader);
+                                    break;
+                                case ("duration"):
+                                    duration = readItem(reader);
+                                    break;
+                                case ("status"):
+                                    status = reader.nextString();
+                                    break;
+                                default:
+                                    reader.skipValue();
+                            }
+                        }
+                        reader.endObject();
+                    }
+                    reader.endArray();
                     break;
-                case ("duration"):
-                    duration = readItem(reader);
-                    break;
-                case ("status"):
-                    status = reader.nextString();
-                    break;
-                default:
-                    reader.skipValue();
             }
         }
         reader.endObject();
