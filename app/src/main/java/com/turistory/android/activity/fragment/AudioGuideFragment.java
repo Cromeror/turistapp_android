@@ -1,6 +1,7 @@
 package com.turistory.android.activity.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.turistory.android.activity.MapActivity;
 import com.turistory.android.activity.R;
 import com.turistory.android.activity.view.adapter.AudioGuideRecyclerAdapter;
 import com.turistory.android.data.AudioGuide;
@@ -38,11 +40,9 @@ public class AudioGuideFragment extends Fragment implements SearchView.OnQueryTe
         setHasOptionsMenu(true);
     }
 
-
     public AudioGuideFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,6 +86,17 @@ public class AudioGuideFragment extends Fragment implements SearchView.OnQueryTe
                 return true; // Return true to expand action view
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.map_item2:
+                Intent intentMap = new Intent(getActivity(), MapActivity.class);
+                startActivity(intentMap);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

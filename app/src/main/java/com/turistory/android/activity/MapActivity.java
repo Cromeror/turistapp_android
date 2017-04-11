@@ -57,6 +57,7 @@ public class MapActivity extends FragmentActivity
         ResultCallback<Status>, GoogleMap.OnMarkerClickListener {
 
     protected final static String TAG = "MainActivity";
+    protected final static String ARG_PLACE_ID = "PLACE_ID";
 
     /**
      * The list of geofences used in this sample.
@@ -71,6 +72,7 @@ public class MapActivity extends FragmentActivity
     private GoogleApiClient mGoogleApiClient;
     private float currentZoom = 18.0f;
     private Location mLastLocation;
+    private LatLng focusIn;
 
     protected synchronized void buildGoogleApiClient() {
         Toast.makeText(this, "buildGoogleApiClient", Toast.LENGTH_SHORT).show();
@@ -213,12 +215,33 @@ public class MapActivity extends FragmentActivity
         marker.setTag(new MarkerPlaceData(entry.getName(), entry.getId()));
     }
 
+    private void focusInPlace(Integer placeId) {
+        if (placeId != null) {
+            Place place = PlacesDataProvider.getPlaces().get(placeId);
+            focusIn = new LatLng(place.getLatitude(), place.getLongitude());
+        }
+    }
+
+    private void moveUbicationCam() {
+        if (focusIn != null)
+            ubicationCamera(focusIn);
+        else if (mLastLocation != null)
+            ubicationCamera(new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude()));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         // Empty list for storing geofences.
         mGeofenceList = new ArrayList<>();
+
+        Bundle bundle = this.getIntent().getExtras();
+        if (bundle != null) {
+            if (bundle.containsKey(ARG_PLACE_ID)) {
+                focusInPlace(bundle.getInt(ARG_PLACE_ID));
+            }
+        }
     }
 
     @Override
@@ -276,9 +299,7 @@ public class MapActivity extends FragmentActivity
 //        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
-        if (mLastLocation != null) {
-            ubicationCamera(new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude()));
-        }
+        moveUbicationCam();
         // Provides a simple way of getting a device's location and is well suited for
         // applications that do not require a fine-grained location and that do not need location
         // updates. Gets the best and most recent location currently available, which may be null

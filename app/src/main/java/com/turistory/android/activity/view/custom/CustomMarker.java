@@ -53,7 +53,7 @@ public class CustomMarker implements GoogleMap.InfoWindowAdapter,
             MarkerPlaceData placeData = (MarkerPlaceData) marker.getTag();
 
             Intent intent = new Intent(activity, AudioPlayerActivity.class);
-            intent.putExtra(AudioPlayerActivity.ARG_PLACE, placeData.getId());
+            intent.putExtra(AudioPlayerActivity.ARG_PLACE_ID, placeData.getId());
             activity.startActivity(intent);
         }
     }

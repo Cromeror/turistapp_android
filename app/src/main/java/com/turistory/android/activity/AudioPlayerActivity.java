@@ -28,7 +28,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
     private ImageButton btnleer;
     private Context context;
     protected final static String TAG = "AudioPlayer";
-    public final static String ARG_PLACE = "PLACE_ID";
+    public final static String ARG_PLACE_ID = "PLACE_ID";
 //implements JcPlayerService.OnInvalidPathListener
 
     @Override
@@ -41,7 +41,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
         Bundle datos = this.getIntent().getExtras();
         Log.e(TAG, "Datos -------> " +
                 datos);
-        int pos = datos.getInt(ARG_PLACE);
+        int pos = datos.getInt(ARG_PLACE_ID);
         Log.e(TAG, "Pos -------> " +
                 pos);
         loadDetail(pos);
@@ -59,8 +59,10 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
         player.registerInvalidPathListener(this);
         adapterSetup();
 
-        ImageButton BtnLeer = (ImageButton) findViewById(R.id.bottombar_leer);
-        BtnLeer.setOnClickListener(getOnclicListenerBtnLeer());
+        ImageButton btnLeer = (ImageButton) findViewById(R.id.bottombar_leer);
+        ImageButton btnMap = (ImageButton) findViewById(R.id.bottombar_map);
+        btnLeer.setOnClickListener(getOnclicListenerBtnLeer());
+        btnMap.setOnClickListener(goToMap());
     }
 
     private View.OnClickListener getOnclicListenerBtnLeer() {
@@ -70,6 +72,19 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
                 player.pause();
                 Intent intent = new Intent(AudioPlayerActivity.this, ReadActivity.class);
                 intent.putExtra("id", audioguide.getId());
+                startActivity(intent);
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+            }
+        };
+    }
+
+    private View.OnClickListener goToMap() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                player.pause();
+                Intent intent = new Intent(AudioPlayerActivity.this, MapActivity.class);
+                intent.putExtra(MapActivity.ARG_PLACE_ID, audioguide.getId());
                 startActivity(intent);
                 overridePendingTransition(R.anim.left_in, R.anim.left_out);
             }
