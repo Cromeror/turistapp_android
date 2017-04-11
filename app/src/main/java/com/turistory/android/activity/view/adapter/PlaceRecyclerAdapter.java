@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.turistory.android.activity.AudioGuideActivity;
+import com.turistory.android.activity.MainActivity;
 import com.turistory.android.activity.MapActivity;
 import com.turistory.android.activity.R;
 import com.turistory.android.activity.view.holder.PlaceRecyclerViewHolder;
@@ -24,8 +24,8 @@ import java.util.List;
  * @version 1.0 SNAPSHOT
  */
 public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerViewHolder> {
-    public final static String PLACE_ID = PlaceRecyclerAdapter.class.getPackage() + ".place.id";
-    protected final static String TAG = "PlaceRecyclerAdapter";
+    private final static String PLACE_ID = PlaceRecyclerAdapter.class.getPackage() + ".place.id";
+    private final static String TAG = "PlaceRecyclerAdapter";
 
     private List<Place> places = PlacesDataProvider.getPlaces();
     private Context context;
@@ -77,25 +77,20 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<PlaceRecyclerView
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //PlaceRecyclerViewHolder vh = (PlaceRecyclerViewHolder) v.getTag();
-                //int posicion = vh.getAdapterPosition();
-                Intent intent = new Intent(context, AudioGuideActivity.class);
+                Intent intent = new Intent(context, MainActivity.class);
                 if (id != null) {
-                    //intent.putExtra(PLACE_ID, id);
                 }
                 context.startActivity(intent);
             }
         };
     }
 
-
-
     @Override
     public int getItemCount() {
         return places.size();
     }
 
-    public void setFilter(List<Place> nuevaLista){
+    public void setFilter(List<Place> nuevaLista) {
         places = new ArrayList<>();
         places.addAll(nuevaLista);
         notifyDataSetChanged();

@@ -47,7 +47,6 @@
 
         <service android:name=".service.GeofenceTransitionsIntentService" />
 
-        <activity android:name=".AudioGuideActivity"></activity>
         <activity
             android:name=".AudioPlayerActivity"
             android:theme="@style/AppTheme.NoActionBar2" />

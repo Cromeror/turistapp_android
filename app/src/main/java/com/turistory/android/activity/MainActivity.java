@@ -23,10 +23,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.support.v4.app.Fragment;
 
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -35,11 +32,13 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingRequest;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.turistory.android.activity.fragment.AudioGuideFragment;
 import com.turistory.android.activity.fragment.PlacesFragment;
 import com.turistory.android.activity.service.GeofenceTransitionsIntentService;
 
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity
     private final String TAG = ".activity.MainActivity";
     private static final String GEOFENCE_ID = "MyGeofenceId";
     private LocationRequest mLocationRequest;
-    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,16 +74,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        //Button routeBtn = (Button) findViewById(R.id.btn_route);
-        //Button placeBtn = (Button) findViewById(R.id.btn_place);
-        //routeBtn.setOnClickListener(getOnClicListenerRoute());
-        //placeBtn.setOnClickListener(getOnClicListenerPlace());
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, new AudioGuideFragment())
+                .commit();
     }
 
     @Override
