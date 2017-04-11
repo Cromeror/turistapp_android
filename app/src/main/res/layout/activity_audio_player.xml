@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,9 +23,8 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_margin="8dp"
-                android:layout_centerVertical="true"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/calle"></ImageView>
+                android:src="@mipmap/calle" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,7 +45,7 @@
                     android:singleLine="true"
                     android:text="La torre del reloj"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/subtitle_audioplayer"
@@ -65,9 +64,9 @@
             android:id="@+id/rel_bottombar_moreicon"
             android:layout_width="96dp"
             android:layout_height="48dp"
-            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
+            android:layout_centerVertical="true">
 
             <ImageButton
                 android:id="@+id/bottombar_leer"
@@ -77,41 +76,41 @@
                 android:layout_toLeftOf="@+id/bottombar_map"
                 android:background="@android:color/transparent"
                 android:clickable="true"
-                android:tint="#616161"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_description" />
+                android:src="@drawable/ic_description"
+                android:tint="#616161" />
 
             <ImageButton
                 android:id="@+id/bottombar_map"
                 android:layout_width="35dp"
                 android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:background="@android:color/transparent"
                 android:clickable="true"
-                android:tint="#616161"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_map"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:tint="#616161" />
         </RelativeLayout>
 
     </RelativeLayout>
+
     <ImageView
         android:id="@+id/cover_audioplayer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/torre_del_reloj_cover">
-    </ImageView>
+        android:src="@mipmap/torre_del_reloj_cover"></ImageView>
 
     <com.example.jean.jcplayer.JcPlayerView
         android:id="@+id/jcplayer"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical" />
 
 </RelativeLayout>
