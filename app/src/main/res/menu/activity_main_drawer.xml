@@ -9,7 +9,7 @@
         <item
             android:id="@+id/nav_places"
             android:icon="@drawable/localizacion_24px"
-            android:title="@string/nav_places" />
+            android:title="@string/nav_audios" />
     </group>
     <item android:title="@string/item_nav_navigation">
         <menu>

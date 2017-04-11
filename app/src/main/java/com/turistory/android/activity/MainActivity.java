@@ -39,7 +39,6 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.turistory.android.activity.fragment.AudioGuideFragment;
-import com.turistory.android.activity.fragment.PlacesFragment;
 import com.turistory.android.activity.service.GeofenceTransitionsIntentService;
 
 import java.util.ArrayList;
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.nav_places:
                 transaction
-                        .replace(R.id.main_container, new PlacesFragment())
+                        .replace(R.id.main_container, new AudioGuideFragment())
                         .commit();
                 break;
             case R.id.nav_about_us:
