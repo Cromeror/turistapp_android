@@ -1,32 +1,23 @@
 package com.turistory.android.activity.view.custom;
 
 import android.app.Activity;
-import android.util.Log;
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.vision.text.Text;
+import com.turistory.android.activity.AudioPlayerActivity;
 import com.turistory.android.activity.R;
 import com.turistory.android.activity.view.custom.data.MarkerPlaceData;
-import com.turistory.android.communication.ComunicationHelper;
-import com.turistory.android.communication.DistanceMatrixHelperJson;
-import com.turistory.android.communication.dto.distance_matrix.DistanceMatrix;
-
-import java.io.IOException;
-import java.io.StringReader;
 
 /**
  * @author Cristóbal Romero Rossi <cristobalromerorossi@gmail.com>
  * @version 1.0
  */
 
-public class CustomMarker implements GoogleMap.InfoWindowAdapter {
+public class CustomMarker implements GoogleMap.InfoWindowAdapter,
+        GoogleMap.OnInfoWindowClickListener {
     private final Activity activity;
 
     public CustomMarker(Activity activity) {
@@ -54,5 +45,16 @@ public class CustomMarker implements GoogleMap.InfoWindowAdapter {
 
         distance.setText((CharSequence) "Distance:");
         return view;
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        if (marker.getTag() != null) {
+            MarkerPlaceData placeData = (MarkerPlaceData) marker.getTag();
+
+            Intent intent = new Intent(activity, AudioPlayerActivity.class);
+            intent.putExtra(AudioPlayerActivity.ARG_PLACE, placeData.getId());
+            activity.startActivity(intent);
+        }
     }
 }

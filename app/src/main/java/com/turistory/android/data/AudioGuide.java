@@ -1,7 +1,5 @@
 package com.turistory.android.data;
 
-import com.example.jean.jcplayer.JcAudio;
-
 /**
  * Created by Ivan on 21/02/2017.
  */

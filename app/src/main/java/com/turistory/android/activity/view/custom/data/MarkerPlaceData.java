@@ -6,15 +6,22 @@ package com.turistory.android.activity.view.custom.data;
  */
 
 public class MarkerPlaceData {
+    private int id;
     private String title;
-    private String Distance;
+    private String distance;
 
     public MarkerPlaceData() {
     }
 
-    public MarkerPlaceData(String title, String distance) {
+    public MarkerPlaceData(String title, int id) {
         this.title = title;
-        Distance = distance;
+        this.id = id;
+    }
+
+    public MarkerPlaceData(int id, String title, String distance) {
+        this.id = id;
+        this.title = title;
+        this.distance = distance;
     }
 
     public String getTitle() {
@@ -26,18 +33,26 @@ public class MarkerPlaceData {
     }
 
     public String getDistance() {
-        return Distance;
+        return distance;
     }
 
     public void setDistance(String distance) {
-        Distance = distance;
+        this.distance = distance;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "MarkerPlaceData{" +
                 "title :'" + title + '\'' +
-                ", Distance :'" + Distance + '\'' +
+                ", distance :'" + distance + '\'' +
                 '}';
     }
 }

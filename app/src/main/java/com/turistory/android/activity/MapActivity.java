@@ -3,7 +3,6 @@ package com.turistory.android.activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -57,8 +56,6 @@ public class MapActivity extends FragmentActivity
         implements OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener,
         ResultCallback<Status>, GoogleMap.OnMarkerClickListener {
 
-    public final static String POSITION_LAT = MapActivity.class.getPackage() + ".position.latitude";
-    public final static String POSITION_LON = MapActivity.class.getPackage() + ".position.longitude";
     protected final static String TAG = "MainActivity";
 
     /**
@@ -100,6 +97,9 @@ public class MapActivity extends FragmentActivity
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+        CustomMarker custom = new CustomMarker(MapActivity.this);
+        map.setInfoWindowAdapter(custom);
+        map.setOnInfoWindowClickListener(custom);
         map.setOnMarkerClickListener(this);
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         map.setMyLocationEnabled(true);
@@ -111,7 +111,6 @@ public class MapActivity extends FragmentActivity
      */
     public void populateGeofenceList() {
         for (Place place : PlacesDataProvider.getPlaces()) {
-            //Log.i("#####POPULATE", place.getLatitude() + "");
             mGeofenceList.add(new Geofence.Builder()
                     // Set the request ID of the geofence. This is a string to identify this
                     // geofence.
@@ -208,11 +207,10 @@ public class MapActivity extends FragmentActivity
     private void loadSites(Place entry) {
         LatLng position = new LatLng(entry.getLatitude(),
                 entry.getLongitude());
-        map.setInfoWindowAdapter(new CustomMarker(MapActivity.this));
         Marker marker = map.addMarker(new MarkerOptions()
                 .position(position)
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_headphone_32px)));
-        marker.setTag(new MarkerPlaceData(entry.getName(), ""));
+        marker.setTag(new MarkerPlaceData(entry.getName(), entry.getId()));
     }
 
     @Override
