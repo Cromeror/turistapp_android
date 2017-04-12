@@ -39,6 +39,8 @@ import com.turistory.android.activity.view.custom.data.MarkerPlaceData;
 import com.turistory.android.communication.ComunicationHelper;
 import com.turistory.android.communication.DistanceMatrixHelperJson;
 import com.turistory.android.communication.dto.distance_matrix.DistanceMatrix;
+import com.turistory.android.data.AudioGuide;
+import com.turistory.android.data.AudioGuideDataProvider;
 import com.turistory.android.data.Place;
 import com.turistory.android.data.PlacesDataProvider;
 
@@ -112,15 +114,15 @@ public class MapActivity extends FragmentActivity
      * the user's location.
      */
     public void populateGeofenceList() {
-        for (Place place : PlacesDataProvider.getPlaces()) {
+        for (AudioGuide audioGuide : AudioGuideDataProvider.getAudioGuide()) {
             mGeofenceList.add(new Geofence.Builder()
                     // Set the request ID of the geofence. This is a string to identify this
                     // geofence.
-                    .setRequestId(place.getId() + "")
+                    .setRequestId(audioGuide.getId() + "")
                     // Set the circular region of this geofence.
                     .setCircularRegion(
-                            place.getLatitude(),
-                            place.getLongitude(),
+                            audioGuide.getLatitude(),
+                            audioGuide.getLongitude(),
                             Constants.GEOFENCE_RADIUS_IN_METERS
                     )
                     // Set the expiration duration of the geofence. This geofence gets automatically
@@ -132,7 +134,7 @@ public class MapActivity extends FragmentActivity
                             Geofence.GEOFENCE_TRANSITION_EXIT)
                     // Create the geofence.
                     .build());
-            loadSites(place);
+            loadSites(audioGuide);
         }
     }
 
@@ -204,21 +206,21 @@ public class MapActivity extends FragmentActivity
     /**
      * Load place information how marker in map.
      *
-     * @param entry place object
+     * @param audioGuide place object
      */
-    private void loadSites(Place entry) {
-        LatLng position = new LatLng(entry.getLatitude(),
-                entry.getLongitude());
+    private void loadSites(AudioGuide audioGuide) {
+        LatLng position = new LatLng(audioGuide.getLatitude(),
+                audioGuide.getLongitude());
         Marker marker = map.addMarker(new MarkerOptions()
                 .position(position)
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_headphone_32px)));
-        marker.setTag(new MarkerPlaceData(entry.getName(), entry.getId()));
+        marker.setTag(new MarkerPlaceData( audioGuide.getId(), audioGuide.getTitle(), audioGuide.getEstado(), audioGuide.getPortada()));
     }
 
-    private void focusInPlace(Integer placeId) {
-        if (placeId != null) {
-            Place place = PlacesDataProvider.getPlaces().get(placeId);
-            focusIn = new LatLng(place.getLatitude(), place.getLongitude());
+    private void focusInPlace(Integer audioGuideId) {
+        if (audioGuideId != null) {
+            AudioGuide audioGuide = AudioGuideDataProvider.getAudioGuide().get(audioGuideId);
+            focusIn = new LatLng(audioGuide.getLatitude(), audioGuide.getLongitude());
         }
     }
 

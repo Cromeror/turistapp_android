@@ -46,14 +46,14 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
     public void onBindViewHolder(AudioGuideRecyclerViewHolder holder, int position) {
 
 
-        if(audioguides.get(position).getEstado().equalsIgnoreCase("GRATIS")){
-            holder.getEstado().setBackgroundColor(0xff4caf50);
+        if(audioguides.get(position).getEstado() == 0){
+            holder.getEstado().setBackgroundColor(0xff1b5e20);
         }else {
-            holder.getEstado().setBackgroundColor(0xfff44336);
+            holder.getEstado().setBackgroundColor(0xffb71c1c);
         }
         holder.getTitle().setText(audioguides.get(position).getTitle());
         holder.getRuta().setText(audioguides.get(position).getRuta());
-        holder.getEstado().setText(audioguides.get(position).getEstado());
+        holder.getEstado().setText(audioguides.get(position).obtenerEstado());
         holder.getCover().setImageResource(audioguides.get(position).getPortada());
         holder.getCover().setOnClickListener(getOnClickListenerAudioPlayer(position));
     }
@@ -64,7 +64,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
             public void onClick(View v) {
  //#4caf50
 
-                if(audioguides.get(position).getEstado().equalsIgnoreCase("GRATIS")){
+                if(audioguides.get(position).obtenerEstado().equalsIgnoreCase("GRATIS")){
                     if (position != null) {
                         Intent intent = new Intent(context, AudioPlayerActivity.class);
                         int id= audioguides.get(position).getId();
@@ -77,7 +77,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
                     }
                 }else {
                     Toast toast1 =
-                            Toast.makeText(context,"Audioguia No liberada", Toast.LENGTH_SHORT);
+                            Toast.makeText(context,"Bloqueado", Toast.LENGTH_SHORT);
                     toast1.show();
 
                 }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/toolbar_white_transparent"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:id="@+id/barra"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="4dp">
+
+            <ImageView
+                android:id="@+id/covermini_audioplayer"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/torre_del_reloj_portada" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_audioplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="La torre del reloj"
+                    android:textSize="18dp"
+                    android:textColor="@color/primary_text" />
+
+                <TextView
+                    android:id="@+id/subtitle_audioplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textSize="14dp"
+                    android:text="Ruta de los esclavos"
+                    android:textColor="@color/secondary_text"
+                     />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/barra_audio"
+            android:layout_width="76dp"
+            android:layout_height="38dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:layout_centerVertical="true">
+
+            <ImageButton
+                android:id="@+id/bottombar_leer"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/bottombar_map"
+                android:background="@drawable/ic_description"
+                android:clickable="true"
+                android:backgroundTint="#616161"/>
+
+            <ImageButton
+                android:id="@+id/bottombar_map"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_map"
+                android:clickable="true"
+                android:backgroundTint="#616161" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.example.jean.jcplayer.JcPlayerView
+        android:id="@+id/jcplayer"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/cover_audioplayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/torre_del_reloj_cover"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"></ImageView>
+
+</RelativeLayout>

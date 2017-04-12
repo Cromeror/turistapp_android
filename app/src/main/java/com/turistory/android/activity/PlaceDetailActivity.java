@@ -104,12 +104,12 @@ public class PlaceDetailActivity extends AppCompatActivity
 
         TextView title = (TextView) findViewById(R.id.title_place_detail);
         TextView description = (TextView) findViewById(R.id.description_place_detail);
-        ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);
+        //ImageView imagen = (ImageView) findViewById(R.id.image_toolbars);
 
         title.setText(place.getName());
         description.setText(place.getDescription());
-        if (place.getCover() != null)
-            imagen.setImageResource(place.getCover());
+        if (place.getCover() != null){}
+            //imagen.setImageResource(place.getCover());
     }
 
     public void playAction(View view) {

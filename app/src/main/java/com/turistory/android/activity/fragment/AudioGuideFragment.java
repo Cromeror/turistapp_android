@@ -119,7 +119,7 @@ public class AudioGuideFragment extends Fragment implements SearchView.OnQueryTe
         for (AudioGuide model : models) {
             final String title = model.getTitle().toLowerCase();
             final String route = model.getRuta().toLowerCase();
-            final String estado = model.getEstado().toLowerCase();
+            final String estado = model.obtenerEstado().toLowerCase();
             if (title.contains(query) || route.contains(query) || estado.contains(query)) {
                 filteredModelList.add(model);
             }
