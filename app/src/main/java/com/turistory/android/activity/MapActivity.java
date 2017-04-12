@@ -324,25 +324,28 @@ public class MapActivity extends FragmentActivity
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        String origins = mLastLocation.getLatitude() + "," + mLastLocation.getLongitude();
-        String destinations = marker.getPosition().latitude + "," + marker.getPosition().longitude;
-        String url =
-                "https://maps.googleapis.com/maps/api/distancematrix/json" +
-                        "?origins=" + origins +
-                        "&destinations=" + destinations +
-                        "&key=" + getString(R.string.distance_matrix_key);
-        Log.i("URL", url);
+        if (mLastLocation != null) {
+            String origins = mLastLocation.getLatitude() + "," + mLastLocation.getLongitude();
+            String destinations = marker.getPosition().latitude + "," + marker.getPosition().longitude;
+            String url =
+                    "https://maps.googleapis.com/maps/api/distancematrix/json" +
+                            "?origins=" + origins +
+                            "&destinations=" + destinations +
+                            "&key=" + getString(R.string.distance_matrix_key);
+            Log.i("URL", url);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new ResponseDistanceMarker(marker),
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("ERROR: ", error.toString());
-                    }
-                });
-        ComunicationHelper.getInstance(this).addToRequestQueue(stringRequest);
-
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new ResponseDistanceMarker(marker),
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.i("ERROR: ", error.toString());
+                        }
+                    });
+            ComunicationHelper.getInstance(this).addToRequestQueue(stringRequest);
+        } else {
+            Toast.makeText(this, R.string.distance_error, Toast.LENGTH_LONG).show();
+        }
         return false;
     }
 
@@ -364,6 +367,9 @@ public class MapActivity extends FragmentActivity
                     assert ((MarkerPlaceData) marker.getTag()) != null;
                     ((MarkerPlaceData) marker.getTag())
                             .setDistance(distance.getRows().get(0).getDistance().getText());
+                    Log.i("TAG", "ENTRO");
+                    marker.hideInfoWindow();
+                    marker.showInfoWindow();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
