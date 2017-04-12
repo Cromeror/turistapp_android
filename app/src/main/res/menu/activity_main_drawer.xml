@@ -8,7 +8,7 @@
                     android:title="@string/nav_routes" />-->
         <item
             android:id="@+id/nav_places"
-            android:icon="@drawable/localizacion_24px"
+            android:icon="@drawable/ic_music_note_black_24px"
             android:title="@string/nav_audios" />
     </group>
     <item android:title="@string/item_nav_navigation">

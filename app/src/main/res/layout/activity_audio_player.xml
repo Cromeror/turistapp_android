@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/white"
+        android:background="@color/toolbar_white_transparent"
         android:gravity="center"
         android:id="@+id/barra"
         android:orientation="horizontal">
@@ -60,18 +60,18 @@
 
             <ImageButton
                 android:id="@+id/bottombar_leer"
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:layout_toLeftOf="@+id/bottombar_map"
-                android:background="@drawable/ic_description"
+                android:background="@drawable/ic_description2"
                 android:clickable="true"/>
 
             <ImageButton
                 android:id="@+id/bottombar_map"
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/ic_map"
+                android:background="@drawable/ic_map2"
                 android:clickable="true" />
         </RelativeLayout>
 
@@ -88,15 +88,16 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
     <ImageView
         android:id="@+id/cover_audioplayer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@mipmap/torre_del_reloj_cover"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/barra"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_above="@+id/jcplayer">
 
     </ImageView>
 

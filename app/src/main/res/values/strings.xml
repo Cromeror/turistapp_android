@@ -154,5 +154,5 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="search_item">Buscar</string>
-    <string name="nav_audios">Audios</string>
+    <string name="nav_audios">Audioguías</string>
 </resources>
