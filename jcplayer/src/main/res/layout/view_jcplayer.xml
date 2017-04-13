@@ -41,7 +41,7 @@
 
                 android:text="00.00"
                 android:textColor="#424242"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 android:layout_alignParentLeft="true" />
 
 
@@ -53,9 +53,9 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="3.5dp"
 
-                android:text="03.45"
+                android:text="00.00"
                 android:textColor="#424242"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 android:layout_alignParentRight="true" />
 
             <SeekBar
@@ -78,8 +78,8 @@
 
     <ImageButton
         android:id="@+id/btn_play"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:clickable="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/ic_play_circle"
@@ -109,8 +109,8 @@
         android:layout_alignParentEnd="true" />
     <ProgressBar
         style="?android:attr/progressBarStyleSmall"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:id="@+id/progress_bar_player"
         android:visibility="gone"
         android:layout_alignParentBottom="true"

@@ -27,6 +27,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
 
 
     private LayoutInflater inflater;
+    protected final static String ARG_PLACE_ID = "PLACE_ID";
     private List<AudioGuide> audioguides = AudioGuideDataProvider.getAudioGuide();
     private Context context;
 
@@ -70,7 +71,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
                         int id= audioguides.get(position).getId();
                         Toast toast = Toast.makeText(context,"Utilice auriculares para un mejor sonido", Toast.LENGTH_SHORT);
                         toast.show();
-                        intent.putExtra("posicion", id);
+                        intent.putExtra(AudioPlayerActivity.ARG_PLACE_ID, id);
                         context.startActivity(intent);
                         Activity activity = (Activity) context;
                         activity.overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);

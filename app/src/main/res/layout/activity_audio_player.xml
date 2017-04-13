@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:background="@color/toolbar_white_transparent"
         android:gravity="center"
         android:id="@+id/barra"
@@ -18,9 +18,9 @@
 
             <ImageView
                 android:id="@+id/covermini_audioplayer"
-                android:layout_width="54dp"
-                android:layout_height="54dp"
-                android:layout_margin="8dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="5dp"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/torre_del_reloj_portada" />
 
@@ -35,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="La torre del reloj"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textColor="@color/primary_text" />
 
                 <TextView
@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:textSize="14sp"
+                    android:textSize="10sp"
                     android:text="Ruta de los esclavos"
                     android:textColor="@color/secondary_text"
                      />
@@ -52,7 +52,7 @@
 
         <RelativeLayout
             android:id="@+id/barra_audio"
-            android:layout_width="76dp"
+            android:layout_width="70dp"
             android:layout_height="38dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="8dp"
@@ -60,16 +60,16 @@
 
             <ImageButton
                 android:id="@+id/bottombar_leer"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_toLeftOf="@+id/bottombar_map"
                 android:background="@drawable/ic_description2"
                 android:clickable="true"/>
 
             <ImageButton
                 android:id="@+id/bottombar_map"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/ic_map2"
                 android:clickable="true" />

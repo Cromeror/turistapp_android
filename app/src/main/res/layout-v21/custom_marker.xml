@@ -11,6 +11,7 @@
         android:background="#b71c1c"
         android:textColor="@color/white"
         android:textSize="10sp"
+        android:layout_marginLeft="7dp"
         android:id="@+id/text_estado"
         android:layout_below="@+id/text_title"
         android:layout_toRightOf="@+id/image_portada_marker"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_distance"
         android:textSize="14sp"
-
+        android:layout_marginLeft="7dp"
         android:layout_below="@+id/text_estado"
         android:layout_toRightOf="@+id/image_portada_marker"
         android:layout_toEndOf="@+id/image_portada_marker" />
@@ -33,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
+        android:layout_marginLeft="7dp"
         android:id="@+id/textAudioguía"
         android:layout_below="@+id/text_distance"
         android:layout_toRightOf="@+id/image_portada_marker"
@@ -44,6 +46,7 @@
         android:layout_height="21dp"
         android:text="Sitio Histórico"
         android:textSize="18sp"
+        android:layout_marginLeft="7dp"
         android:textStyle="bold"
         android:layout_toRightOf="@+id/image_portada_marker"
         android:layout_toEndOf="@+id/image_portada_marker" />

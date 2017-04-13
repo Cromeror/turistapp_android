@@ -66,7 +66,7 @@
             android:id="@+id/textread"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:text="La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua.
 
 La torre,  queda entre las plaza de los coches y la plaza de la paz, su creación tuvo lugar en el año de 1601 y en sus inicios fue llamada “la puerta del puente”, debido al puente de madera que pasaba por encima del caño de San Anastasio, uniendo así, la isla de Getsemaní, con la isla de Calamarí, esta última es hoy en día el barrio centro.

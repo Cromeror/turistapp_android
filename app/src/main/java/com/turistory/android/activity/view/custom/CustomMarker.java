@@ -75,7 +75,6 @@ public class CustomMarker implements GoogleMap.InfoWindowAdapter,
                 intent.putExtra(AudioPlayerActivity.ARG_PLACE_ID, placeData.getId());
                 activity.startActivity(intent);
             }else {
-
                 Toast toast2 =
                         Toast.makeText(activity,"Bloqueado", Toast.LENGTH_SHORT);
                 toast2.show();
