@@ -39,11 +39,17 @@ public class CustomMarker implements GoogleMap.InfoWindowAdapter,
             MarkerPlaceData placeData = (MarkerPlaceData) marker.getTag();
 
             title.setText(placeData.getTitle());
-            distance.setText(String.format("Distance: %s", placeData.getDistance()));
+            if (placeData.getDistance() != null)
+                distance.setText(String.format(activity.getString(R.string.distance_info),
+                        placeData.getDistance()));
+            else
+                distance.setText(String.format(activity.getString(R.string.distance_info),
+                        activity.getString(R.string.loading)));
             return view;
         }
 
-        distance.setText((CharSequence) "Distance:");
+        distance.setText(String.format(activity.getString(R.string.distance_info),
+                activity.getString(R.string.not_available)));
         return view;
     }
 

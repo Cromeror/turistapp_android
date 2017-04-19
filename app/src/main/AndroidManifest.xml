@@ -53,7 +53,13 @@
         <activity
             android:name=".ReadActivity"
             android:label="@string/title_activity_read"
-            android:theme="@style/AppTheme.NoActionBar2"></activity>
+            android:theme="@style/AppTheme.NoActionBar2">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AudioPlayerActivity" />
+        </activity>
     </application>
 
 </manifest>

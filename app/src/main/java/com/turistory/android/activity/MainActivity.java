@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private static final int PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 3;
     private static final int REQUEST_LOCATION_SETTINGS = 12;
+    private static final String AUDIO_GUIDE_KEY = "AUDIO_GUIDE_FRAGMENT";
 
     private GoogleApiClient mGoogleApiClient;
     private final String TAG = ".activity.MainActivity";
@@ -122,6 +123,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_places:
                 transaction
                         .replace(R.id.main_container, new AudioGuideFragment())
+                        .addToBackStack(AUDIO_GUIDE_KEY)
                         .commit();
                 break;
             case R.id.nav_about_us:
