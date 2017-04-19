@@ -9,6 +9,9 @@ public class MarkerPlaceData {
     private int id;
     private String title;
     private String distance;
+    private int estado;
+    private int portada;
+
 
     public MarkerPlaceData() {
     }
@@ -16,6 +19,13 @@ public class MarkerPlaceData {
     public MarkerPlaceData(String title, int id) {
         this.title = title;
         this.id = id;
+    }
+
+    public MarkerPlaceData(int id, String title, int estado, int portada) {
+        this.id = id;
+        this.title = title;
+        this.estado = estado;
+        this.portada = portada;
     }
 
     public MarkerPlaceData(int id, String title, String distance) {
@@ -46,6 +56,22 @@ public class MarkerPlaceData {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public int getPortada() {
+        return portada;
+    }
+
+    public void setPortada(int portada) {
+        this.portada = portada;
     }
 
     @Override

@@ -6,25 +6,23 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:background="@color/toolbar_white_transparent"
-        android:elevation="4dp"
         android:gravity="center"
+        android:id="@+id/barra"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/rel_bottombar_moreicon"
-            android:elevation="4dp">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/covermini_audioplayer"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_margin="8dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="5dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/calle" />
+                android:src="@mipmap/torre_del_reloj_portada" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,81 +34,71 @@
                     android:id="@+id/title_audioplayer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:focusable="true"
-                    android:focusableInTouchMode="false"
-                    android:freezesText="true"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:scrollHorizontally="true"
-                    android:singleLine="true"
                     android:text="La torre del reloj"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/black" />
+                    android:textSize="14sp"
+                    android:textColor="@color/primary_text" />
 
                 <TextView
                     android:id="@+id/subtitle_audioplayer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:singleLine="true"
+                    android:textSize="10sp"
                     android:text="Ruta de los esclavos"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#757575"
-                    android:textStyle="normal" />
+                    android:textColor="@color/secondary_text"
+                     />
             </LinearLayout>
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/rel_bottombar_moreicon"
-            android:layout_width="96dp"
-            android:layout_height="48dp"
-            android:layout_alignParentEnd="true"
+            android:id="@+id/barra_audio"
+            android:layout_width="70dp"
+            android:layout_height="38dp"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
             android:layout_centerVertical="true">
 
             <ImageButton
                 android:id="@+id/bottombar_leer"
-                android:layout_width="48dp"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_toLeftOf="@+id/bottombar_map"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_description"
-                android:tint="#616161" />
+                android:background="@drawable/ic_description2"
+                android:clickable="true"/>
 
             <ImageButton
                 android:id="@+id/bottombar_map"
-                android:layout_width="35dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_map"
-                android:tint="#616161" />
+                android:background="@drawable/ic_map2"
+                android:clickable="true" />
         </RelativeLayout>
 
     </RelativeLayout>
+
+
+
+    <com.example.jean.jcplayer.JcPlayerView
+        android:id="@+id/jcplayer"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/cover_audioplayer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/torre_del_reloj_cover"></ImageView>
-
-    <com.example.jean.jcplayer.JcPlayerView
-        android:id="@+id/jcplayer"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
+        android:src="@mipmap/torre_del_reloj_cover"
+        android:layout_below="@+id/barra"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center_vertical"
-        android:orientation="vertical" />
+        android:layout_above="@+id/jcplayer">
+
+    </ImageView>
 
 </RelativeLayout>

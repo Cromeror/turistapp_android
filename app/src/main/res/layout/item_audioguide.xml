@@ -23,7 +23,7 @@
             android:contentDescription="@string/img_cover"
 
             android:scaleType="centerCrop"
-            android:src="@mipmap/calle"
+            android:src="@mipmap/torre_del_reloj_portada"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -42,7 +42,7 @@
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -56,7 +56,7 @@
 
                     android:text="Calle de las Mercedes"
                     android:textColor="#ffffff"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -69,7 +69,7 @@
                     android:layout_alignParentStart="true"
                     android:text="Informacion general"
                     android:textColor="#ffffff"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -82,7 +82,7 @@
             android:text="BLOQUEADO"
             android:padding="2dp"
             android:textColor="#ffffff"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:layout_margin="5dp"
             android:layout_alignParentTop="true"

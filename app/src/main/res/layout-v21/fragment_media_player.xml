@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="4dp"
+    android:padding="@dimen/padding_mediaplayer"
+    tools:context="com.turistory.android.activity.MediaPlayerFragment">
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/play_btn"
+        android:layout_toStartOf="@+id/play_btn">
+        <include layout="@layout/info_media_player" />
+    </GridLayout>
+
+    <ImageButton
+        android:id="@+id/play_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/transparent"
+        android:contentDescription="@string/description_play_button"
+        android:paddingLeft="@dimen/padding_mediaplayer"
+        android:paddingStart="@dimen/padding_mediaplayer"
+        android:src="@drawable/ic_play_circle_filled_black_24px" />
+</RelativeLayout>

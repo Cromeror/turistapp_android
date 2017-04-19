@@ -27,6 +27,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
 
 
     private LayoutInflater inflater;
+    protected final static String ARG_PLACE_ID = "PLACE_ID";
     private List<AudioGuide> audioguides = AudioGuideDataProvider.getAudioGuide();
     private Context context;
 
@@ -46,14 +47,14 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
     public void onBindViewHolder(AudioGuideRecyclerViewHolder holder, int position) {
 
 
-        if(audioguides.get(position).getEstado().equalsIgnoreCase("GRATIS")){
-            holder.getEstado().setBackgroundColor(0xff4caf50);
+        if(audioguides.get(position).getEstado() == 0){
+            holder.getEstado().setBackgroundColor(0xff1b5e20);
         }else {
-            holder.getEstado().setBackgroundColor(0xfff44336);
+            holder.getEstado().setBackgroundColor(0xffb71c1c);
         }
         holder.getTitle().setText(audioguides.get(position).getTitle());
         holder.getRuta().setText(audioguides.get(position).getRuta());
-        holder.getEstado().setText(audioguides.get(position).getEstado());
+        holder.getEstado().setText(audioguides.get(position).obtenerEstado());
         holder.getCover().setImageResource(audioguides.get(position).getPortada());
         holder.getCover().setOnClickListener(getOnClickListenerAudioPlayer(position));
     }
@@ -64,20 +65,20 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
             public void onClick(View v) {
  //#4caf50
 
-                if(audioguides.get(position).getEstado().equalsIgnoreCase("GRATIS")){
+                if(audioguides.get(position).obtenerEstado().equalsIgnoreCase("GRATIS")){
                     if (position != null) {
                         Intent intent = new Intent(context, AudioPlayerActivity.class);
                         int id= audioguides.get(position).getId();
                         Toast toast = Toast.makeText(context,"Utilice auriculares para un mejor sonido", Toast.LENGTH_SHORT);
                         toast.show();
-                        intent.putExtra("posicion", id);
+                        intent.putExtra(AudioPlayerActivity.ARG_PLACE_ID, id);
                         context.startActivity(intent);
                         Activity activity = (Activity) context;
                         activity.overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                     }
                 }else {
                     Toast toast1 =
-                            Toast.makeText(context,"Audioguia No liberada", Toast.LENGTH_SHORT);
+                            Toast.makeText(context,"Bloqueado", Toast.LENGTH_SHORT);
                     toast1.show();
 
                 }

@@ -154,9 +154,11 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="search_item">Buscar</string>
-    <string name="nav_audios">Audios</string>
+
+    <string name="nav_audios">Audioguías</string>
     <string name="distance_error">No se pudo medir la distancia, verifique si su GPS esta activado</string>
     <string name="distance_info">Distancia: %s</string>
     <string name="not_available">no disponible</string>
     <string name="loading">Loading...</string>
+
 </resources>

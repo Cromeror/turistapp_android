@@ -13,9 +13,11 @@ public class AudioGuide {
     private int portada;
     private int audio;
     private  String guion;
-    private String estado;
+    private int estado;
+    private Double latitude;
+    private Double longitude;
 
-    public AudioGuide(int id, String title, String ruta, int cover, int portada, int audio, String guion, String estado) {
+    public AudioGuide(int id, String title, String ruta, int cover, int portada, int audio, String guion, int estado, Double latitude, Double longitude) {
         this.id = id;
         this.title = title;
         this.ruta = ruta;
@@ -24,8 +26,18 @@ public class AudioGuide {
         this.audio = audio;
         this.guion = guion;
         this.estado = estado;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
+    public String obtenerEstado (){
+
+        if (this.estado == 0) {
+            return "GRATIS";
+        }
+        return "BLOQUEADO";
+
+    }
     public int getId() {
         return id;
     }
@@ -82,11 +94,27 @@ public class AudioGuide {
         this.guion = guion;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 }
