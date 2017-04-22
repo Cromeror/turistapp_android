@@ -2,34 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+        <!--        <item
+                    android:id="@+id/nav_routes"
+                    android:icon="@drawable/rutas"
+                    android:title="@string/nav_routes" />-->
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_places"
+            android:icon="@drawable/ic_music_note_black_24px"
+            android:title="@string/nav_audios" />
     </group>
-
-    <item android:title="Communicate">
+    <item android:title="@string/item_nav_navigation">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_map"
+                android:icon="@drawable/ic_map"
+                android:title="@string/nav_map" />
+        </menu>
+    </item>
+    <item android:title="@string/item_nav_about">
+        <menu>
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/info"
+                android:title="@string/nav_about_us" />
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/nav_contact" />
         </menu>
     </item>
 
