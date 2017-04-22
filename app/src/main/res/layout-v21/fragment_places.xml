@@ -3,7 +3,7 @@
     android:id="@+id/fragment_places"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.turistory.android.activity.fragment.PlacesFragment">
+    tools:context="com.turistory.android.testactivity.fragment.PlacesFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_view_places"

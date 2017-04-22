@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:elevation="4dp"
     android:padding="@dimen/padding_mediaplayer"
-    tools:context="com.turistory.android.activity.MediaPlayerFragment">
+    tools:context="com.turistory.android.testactivity.MediaPlayerFragment">
 
     <GridLayout
         android:layout_width="wrap_content"

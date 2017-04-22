@@ -1,7 +1,5 @@
 package com.turistory.android.data;
 
-import com.turistory.android.activity.R;
-
 import java.util.ArrayList;
 import java.util.List;
 

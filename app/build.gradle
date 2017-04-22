@@ -20,7 +20,7 @@ android {
         targetSdkVersion 25
         multiDexEnabled true
         versionCode 1
-        versionName "1.0 Estable"
+        versionName "Alfa v01.00.00"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
