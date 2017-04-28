@@ -65,7 +65,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
             public void onClick(View v) {
  //#4caf50
 
-                if(audioguides.get(position).obtenerEstado().equalsIgnoreCase("GRATIS")){
+                if(audioguides.get(position).getEstado()==0){
                     if (position != null) {
                         Intent intent = new Intent(context, AudioPlayerActivity.class);
                         int id= audioguides.get(position).getId();
@@ -78,7 +78,7 @@ public class AudioGuideRecyclerAdapter extends RecyclerView.Adapter<AudioGuideRe
                     }
                 }else {
                     Toast toast1 =
-                            Toast.makeText(context,"Bloqueado", Toast.LENGTH_SHORT);
+                            Toast.makeText(context,"En producción", Toast.LENGTH_SHORT);
                     toast1.show();
 
                 }

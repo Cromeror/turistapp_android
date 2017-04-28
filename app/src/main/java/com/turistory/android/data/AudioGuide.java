@@ -33,9 +33,9 @@ public class AudioGuide {
     public String obtenerEstado (){
 
         if (this.estado == 0) {
-            return "GRATIS";
+            return "DISPONIBLE";
         }
-        return "BLOQUEADO";
+        return "EN PRODUCCIÓN";
 
     }
     public int getId() {
