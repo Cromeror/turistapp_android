@@ -47,10 +47,10 @@ public class CustomMarker implements GoogleMap.InfoWindowAdapter,
 
             if(placeData.getEstado() == 0){
                 estado.setBackgroundColor(0xff1b5e20);
-                estado.setText("GRATIS");
+                estado.setText("DISPONIBLE");
             }else {
                 estado.setBackgroundColor(0xffb71c1c);
-                estado.setText("BLOQUEADO");
+                estado.setText("EN PRODUCCIÓN");
             }
 
 

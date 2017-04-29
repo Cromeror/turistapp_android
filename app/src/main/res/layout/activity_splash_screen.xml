@@ -5,7 +5,7 @@
     android:id="@+id/activity_splash_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f57c00">
+    android:background="@color/primary">
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
     <ImageView
         android:layout_width="90dp"
         android:layout_height="90dp"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@mipmap/logo_blanco"
         android:id="@+id/imageLogo"
         android:layout_marginTop="143dp"
         android:layout_alignParentTop="true"

@@ -24,7 +24,7 @@
                 android:layout_height="54dp"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/torre_del_reloj_portada" />
+                android:src="@mipmap/plaza_de_la_aduana_cover" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -92,14 +92,18 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+
     <ImageView
         android:id="@+id/cover_audioplayer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/torre_del_reloj_cover"
-        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/plaza_de_la_aduana_cover"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></ImageView>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/barra"
+        android:layout_above="@+id/jcplayer">
+
+    </ImageView>
 
 </RelativeLayout>

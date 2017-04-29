@@ -22,7 +22,7 @@
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        app:srcCompat="@mipmap/ic_launcher"
+        app:srcCompat="@mipmap/logo_blanco"
         android:id="@+id/imageLogo"
         android:layout_marginTop="143dp"
         android:layout_alignParentTop="true"
