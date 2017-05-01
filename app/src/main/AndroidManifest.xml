@@ -25,6 +25,7 @@
             android:theme="@style/AppTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -45,7 +46,8 @@
             android:theme="@style/AppTheme.SplashScreen" />
         <activity
             android:name=".ContactusActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/nav_contact"
+            android:theme="@style/AppTheme.Main" />
 
         <service android:name=".service.GeofenceTransitionsIntentService" />
 
@@ -62,6 +64,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AudioPlayerActivity" />
         </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"></activity>
     </application>
 
 </manifest>
