@@ -1,5 +1,7 @@
 package com.turistory.android.data;
 
+import java.util.List;
+
 /**
  * Created by Ivan on 21/02/2017.
  */
@@ -9,19 +11,23 @@ public class AudioGuide {
     private int id;
     private String title;
     private String ruta;
-    private  int cover;
+    private int cover;
     private int portada;
+    private List<Integer> gallery;
     private int audio;
-    private  String guion;
+    private String guion;
     private int estado;
     private Double latitude;
     private Double longitude;
 
-    public AudioGuide(int id, String title, String ruta, int cover, int portada, int audio, String guion, int estado, Double latitude, Double longitude) {
+    public AudioGuide(int id, String title, String ruta, int cover, int portada, int audio,
+                      String guion, int estado, Double latitude, Double longitude,
+                      List<Integer> gallery) {
         this.id = id;
         this.title = title;
         this.ruta = ruta;
         this.cover = cover;
+        this.gallery = gallery;
         this.portada = portada;
         this.audio = audio;
         this.guion = guion;
@@ -30,7 +36,7 @@ public class AudioGuide {
         this.longitude = longitude;
     }
 
-    public String obtenerEstado (){
+    public String obtenerEstado() {
 
         if (this.estado == 0) {
             return "GRATIS";
@@ -38,6 +44,7 @@ public class AudioGuide {
         return "BLOQUEADO";
 
     }
+
     public int getId() {
         return id;
     }
@@ -116,5 +123,13 @@ public class AudioGuide {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public List<Integer> getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(List<Integer> gallery) {
+        this.gallery = gallery;
     }
 }

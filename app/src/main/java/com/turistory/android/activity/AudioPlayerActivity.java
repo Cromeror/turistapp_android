@@ -2,9 +2,13 @@ package com.turistory.android.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -15,13 +19,16 @@ import android.widget.Toast;
 import com.example.jean.jcplayer.JcAudio;
 import com.example.jean.jcplayer.JcPlayerService;
 import com.example.jean.jcplayer.JcPlayerView;
+import com.turistory.android.activity.fragment.CoverAudioFragment;
 import com.turistory.android.activity.view.adapter.AudioAdapter;
 import com.turistory.android.data.AudioGuide;
 import com.turistory.android.data.AudioGuideDataProvider;
 
 import java.util.ArrayList;
 
-public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerService.OnInvalidPathListener {
+public class AudioPlayerActivity extends FragmentActivity
+        implements CoverAudioFragment.OnFragmentInteractionListener, JcPlayerService.OnInvalidPathListener {
+
     private AudioGuide audioguide;
     private AudioAdapter audioAdapter;
     private JcPlayerView player;
@@ -29,15 +36,16 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
     private Context context;
     protected final static String TAG = "AudioPlayer";
     public final static String ARG_PLACE_ID = "PLACE_ID";
+    private CoverGalleryAdapter mCoverGalleryAdapter;
+    private ViewPager mViewPager;
 //implements JcPlayerService.OnInvalidPathListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_player);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+        //Others
         Bundle datos = this.getIntent().getExtras();
         Log.e(TAG, "Datos -------> " +
                 datos);
@@ -45,6 +53,12 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
         Log.e(TAG, "Pos -------> " +
                 pos);
         loadDetail(pos);
+
+        //Swipe Gallery
+        mCoverGalleryAdapter = new CoverGalleryAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.pager_cover_media);
+        mViewPager.setAdapter(mCoverGalleryAdapter);
+        //
 
         Log.e(TAG, "Posicion -------> " +
                 audioguide.getId());
@@ -101,11 +115,11 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
         TextView title = (TextView) findViewById(R.id.title_audioplayer);
         TextView subtitle = (TextView) findViewById(R.id.subtitle_audioplayer);
         ImageView covermini = (ImageView) findViewById(R.id.covermini_audioplayer);
-        ImageView cover = (ImageView) findViewById(R.id.cover_audioplayer);
+        //ImageView cover = (ImageView) findViewById(R.id.cover_audioplayer);
         title.setText(this.audioguide.getTitle());
         covermini.setImageResource(audioguide.getPortada());
         subtitle.setText(audioguide.getRuta());
-        cover.setImageResource(audioguide.getCover());
+        //cover.setImageResource(audioguide.getCover());
     }
 
     public void playAudio(JcAudio jcAudio) {
@@ -150,5 +164,28 @@ public class AudioPlayerActivity extends AppCompatActivity implements JcPlayerSe
     @Override
     public void onPathError(JcAudio jcAudio) {
         Toast.makeText(this, jcAudio.getPath() + " with problems", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    class CoverGalleryAdapter extends FragmentStatePagerAdapter {
+        public CoverGalleryAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int i) {
+            Fragment fragment = CoverAudioFragment.newInstance(audioguide.getGallery().get(i));
+            Log.i("ADAPTER", i + "");
+            return fragment;
+        }
+
+        @Override
+        public int getCount() {
+            return audioguide.getGallery().size();
+        }
     }
 }

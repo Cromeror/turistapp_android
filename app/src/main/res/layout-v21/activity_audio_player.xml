@@ -1,4 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/barra"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@color/toolbar_white_transparent"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="4dp">
+
+            <ImageView
+                android:id="@+id/covermini_audioplayer"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/torre_del_reloj_portada" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_audioplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="La torre del reloj"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/subtitle_audioplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="Ruta de los esclavos"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="14dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/barra_audio"
+            android:layout_width="76dp"
+            android:layout_height="38dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp">
+
+            <ImageButton
+                android:id="@+id/bottombar_leer"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_toLeftOf="@+id/bottombar_map"
+                android:background="@drawable/ic_description"
+                android:backgroundTint="#616161"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/bottombar_map"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_map"
+                android:backgroundTint="#616161"
+                android:clickable="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_cover_media"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="16" />
+
+    <com.example.jean.jcplayer.JcPlayerView
+        android:id="@+id/jcplayer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical" />
+</LinearLayout><!--
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -81,16 +178,6 @@
 
     </RelativeLayout>
 
-    <com.example.jean.jcplayer.JcPlayerView
-        android:id="@+id/jcplayer"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:elevation="2dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/cover_audioplayer"
@@ -102,4 +189,4 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"></ImageView>
 
-</RelativeLayout>
+</RelativeLayout>-->
