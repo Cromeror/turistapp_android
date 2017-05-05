@@ -68,13 +68,36 @@ public class AudioGuideDataProvider {
     public static List<AudioGuide> getAudioGuide() {
         List<AudioGuide> audioguideList = new ArrayList();
         for (int i = 0; i < audioguides.length; i++) {
-            ArrayList<Integer> gallery= new ArrayList<Integer>();
-            gallery.add(R.mipmap.torre_del_reloj_cover);
-            gallery.add(R.mipmap.plaza_de_la_aduana_cover);
-            gallery.add(R.mipmap.plaza_de_los_coches_portada);
+                       if (i==0){
+                ArrayList<Integer> gallery= new ArrayList<Integer>();
+                gallery.add(R.mipmap.torre_del_reloj_cover);
+                gallery.add(R.mipmap.torre_del_reloj_historico_1);
+                gallery.add(R.mipmap.torre_del_reloj_3);
+                gallery.add(R.mipmap.torre_del_reloj_historico_2);
+                gallery.add(R.mipmap.torre_del_reloj_2);
 
-            audioguides[i].setGallery(gallery);
-            audioguideList.add(audioguides[i]);
+                audioguides[i].setGallery(gallery);
+                audioguideList.add(audioguides[i]);
+            }
+            if (i==1){
+                ArrayList<Integer> gallery= new ArrayList<Integer>();
+                gallery.add(R.mipmap.plaza_de_la_aduana_1);
+                gallery.add(R.mipmap.plaza_de_la_aduana_cover);
+                gallery.add(R.mipmap.plaza_de_la_aduana_2);
+                gallery.add(R.mipmap.plaza_de_la_aduana_historico_1);
+
+                audioguides[i].setGallery(gallery);
+                audioguideList.add(audioguides[i]);
+            }
+            if (i>1){
+                ArrayList<Integer> gallery= new ArrayList<Integer>();
+                gallery.add(R.mipmap.torre_del_reloj_portada);
+                gallery.add(R.mipmap.torre_del_reloj_cover);
+                gallery.add(R.mipmap.torre_del_reloj_historico_1);
+
+                audioguides[i].setGallery(gallery);
+                audioguideList.add(audioguides[i]);
+            }
         }
         return audioguideList;
     }
