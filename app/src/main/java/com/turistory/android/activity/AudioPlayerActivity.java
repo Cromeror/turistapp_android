@@ -179,7 +179,6 @@ public class AudioPlayerActivity extends FragmentActivity
         @Override
         public Fragment getItem(int i) {
             Fragment fragment = CoverAudioFragment.newInstance(audioguide.getGallery().get(i));
-            Log.i("ADAPTER", i + "");
             return fragment;
         }
 

@@ -64,7 +64,6 @@ public class CoverAudioFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cover_audio, container, false);
         ImageView imageView = (ImageView) view.findViewById(R.id.current_image);
-        Log.i("RRRR", "" + imageResource);
         imageView.setImageResource(imageResource);
         return view;
     }
