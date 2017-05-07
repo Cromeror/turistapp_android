@@ -46,20 +46,52 @@ public class AudioGuideDataProvider {
                     null
             ),
 
-
-            new AudioGuide(2, "Muelle de los pegasos", "Información general", R.mipmap.muelle_de_los_pegasos_portada, R.mipmap.muelle_de_los_pegasos_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4222998, -75.5488254,
+            new AudioGuide(2, "Pedro de Heredia", "Información general", R.mipmap.homenaje_pedro_de_heredia_portada, R.mipmap.homenaje_pedro_de_heredia_portada, R.raw.monumento_pedro_de_heredia, "MONUMENTO A PEDRO DE HEREDIA\n" +
+                    "Heredia, como lo enseña la historia, nació en Madrid España en el año de 1520 y murió ahogado en las aguas del Océano Atlántico en 1554. Sin embargo, detrás de este hombre reposa  una de las  más importantes historias para lo que sería la ciudad de Cartagena de Indias.\n" +
+                    "\n" +
+                    "Don Pedro de heredia fue el fundador de la ciudad de Cartagena de Indias, explorador de la costa y del interior de la actual Colombia hasta el departamento de  Antioquia y norte del Tolima.\n" +
+                    "\n" +
+                    "La estatua, está construida en bronce y se levanta majestuosa y dominante sobre un alto pedestal en el norte de la Plaza de los Coches. \n" +
+                    "\n" +
+                    "La figura del conquistador luce ataviada con una elegante capa, en la mano derecha luce un pergamino, que alegóricamente puede ser el de las capitulaciones  firmadas con la corona española.\n" +
+                    "\n" +
+                    "Con la mano izquierda el conquistador empuña la espada, arma letal con la que combatió en innumerables batallas.\n" +
+                    "\n" +
+                    "El alto pedestal que sostiene  la escultura  cubierto de granito tiene diversas   ornamentaciones, hechas igualmente en bronce; la parte frontal  tiene la siguiente inscripción:\n" +
+                    "\n" +
+                    "“Pedro de Heredia. Cartagena de Indias a su fundador.”\n" +
+                    "\n" +
+                    "Debajo del escrito está el escudo republicano de Cartagena, bellamente adornado y labrado en bronce.\n" +
+                    "\n" +
+                    "El lado izquierdo del  pedestal presenta el escudo imperial de España; finalmente  en la parte posterior  sobresale lo  que puede ser el escudo familiar del conquistador, y  la estructura protectora de una armadura medieval.\n" +
+                    "\n" +
+                    "Finalmente en esta parte del pedestal aparecen cinco figuras y la siguiente inscripción  en Latín:\n" +
+                    "\n" +
+                    "PRO LEGEM EL REGEM SI MORIMUR VIVIMUS.\n" +
+                    "\n" +
+                    "Que significa:\n" +
+                    "\n" +
+                    "Si morimos por la ley y el Rey vivimos.\n" +
+                    "La estatua de Heredia, fue erigida a principios de 1960 gracias a la iniciativa del ilustre historiador cartagenero Eduardo Lemaitre Román.\n" +
+                    "\n" +
+                    "Inicialmente, se ubicó frente a la Boca del Puente, y posteriormente fue reubicada en la Plaza de los Coches.\n" +
+                    "\n" +
+                    "Homenaje a Pedro de Heredia", 0, 10.4222998, -75.5488254,
                     null
             ),
-            new AudioGuide(3, "Plaza de Santo Domingo", "Información general", R.mipmap.plaza_santo_domingo, R.mipmap.plaza_santo_domingo, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4242147, -75.5542509,
+            new AudioGuide(3, "Muelle de los pegasos", "Información general", R.mipmap.muelle_de_los_pegasos_portada, R.mipmap.muelle_de_los_pegasos_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4222998, -75.5488254,
                     null
             ),
-            new AudioGuide(4, "Iglesia San Pedro Claver", "Información general", R.mipmap.iglesia_san_pedro_claver_portada, R.mipmap.iglesia_san_pedro_claver_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.422013, -75.5518895,
+            new AudioGuide(4, "Plaza de Santo Domingo", "Información general", R.mipmap.plaza_santo_domingo, R.mipmap.plaza_santo_domingo, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4242147, -75.5542509,
                     null
             ),
-            new AudioGuide(5, "Plaza de los coches", "Información general", R.mipmap.plaza_de_los_coches_portada, R.mipmap.plaza_de_los_coches_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4229373, -75.5493749,
+            new AudioGuide(5, "Iglesia San Pedro Claver", "Información general", R.mipmap.iglesia_san_pedro_claver_portada, R.mipmap.iglesia_san_pedro_claver_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.422013, -75.5518895,
                     null
             ),
-            new AudioGuide(6, "Plaza de la paz", "Información general", R.mipmap.plaza_de_la_paz_portada, R.mipmap.plaza_de_la_paz_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4230217, -75.5489867,
+            new AudioGuide(6, "Plaza de los coches", "Información general", R.mipmap.plaza_de_los_coches_portada, R.mipmap.plaza_de_los_coches_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4229373, -75.5493749,
+                    null
+            ),
+            new AudioGuide(7, "Plaza de la paz", "Información general", R.mipmap.plaza_de_la_paz_portada, R.mipmap.plaza_de_la_paz_portada, R.raw.audio_torre_del_reloj, "La torre del reloj con una altura total de 30 metros, constituye uno de los símbolos arquitectónicos más conocidos de la ciudad de Cartagena de indias; está ubicada en pleno corazón de la heroica, y podríamos considerarla, la fachada de la ciudad antigua", 1, 10.4230217, -75.5489867,
                     null
             )
     };
@@ -89,7 +121,17 @@ public class AudioGuideDataProvider {
                 audioguides[i].setGallery(gallery);
                 audioguideList.add(audioguides[i]);
             }
-            if (i>1){
+            if (i==2){
+                ArrayList<Integer> gallery= new ArrayList<Integer>();
+                gallery.add(R.mipmap.homenaje_a_pedro_de_heredia_4);
+                gallery.add(R.mipmap.homenaje_a_pedro_de_heredia_2);
+                gallery.add(R.mipmap.homenaje_a_pedro_de_heredia_3);
+                gallery.add(R.mipmap.homenaje_a_pedro_de_heredia_1);
+
+                audioguides[i].setGallery(gallery);
+                audioguideList.add(audioguides[i]);
+            }
+            if (i>2){
                 ArrayList<Integer> gallery= new ArrayList<Integer>();
                 gallery.add(R.mipmap.torre_del_reloj_portada);
                 gallery.add(R.mipmap.torre_del_reloj_cover);
